@@ -1,4 +1,4 @@
-            TODO APP
+            TO-DO APP
         <- ----------- ->
 
     -----Requirements------
@@ -14,3 +14,16 @@
 ❇️ -> Mark an item as done and undone
 
 ❇️ -> Delete a todo list
+
+
+              TO-DO
+        <- ----------- ->
+
+✅ -> Setup the directory structure.
+
+✅ -> Setup a server.
+
+🔄 -> Make the basic version of todo homepage.
+
+🔄 -> Decide the structure of the database.
+
