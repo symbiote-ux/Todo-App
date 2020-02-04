@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>TO-DO</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js"></script>
+  </head>
+
+  <body>
+    <div id="head-part" class="head-part">
+      <h1 id="heading" class="heading">TO-DO</h1>
+    </div>
+    <div id="body-part" class="body-part">
+      <button
+        id="add"
+        class="button"
+        onclick="openNewTodo()"
+        style="display: block;"
+      >
+        +
+      </button>
+      <button
+        id="close"
+        class="button"
+        onclick="closeNewTodo()"
+        style="display: none;"
+      >
+        x
+      </button>
+      <div id="todo-title" class="todo-parts">
+        <label for="title" id="label-title" class="label-title"
+          >Title&nbsp;</label
+        >
+        <input type="text" id="title" class="inner-box" required />
+        <button
+          id="add-__idNo__"
+          type="button"
+          class="button"
+          onclick="addTask()"
+        >
+          +
+        </button>
+      </div>
+      <div id="todo-tasks"></div>
+      <button class="button" onclick="save()">&#10004;</button>
+    </div>
+  </body>
+</html>
