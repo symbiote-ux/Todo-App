@@ -54,3 +54,20 @@ const addTask = () => {
   taskIdList.push(currentIdNo);
   document.querySelector('#todo-tasks').appendChild(htmlToAdd);
 };
+
+const getTodoDataString = function() {
+  const title = document.getElementById('title').value;
+  const tasks = document.querySelector('#todo-tasks').children;
+  const lists = [...tasks].map(task => task.children[1].value);
+  return `title=${title}&tasks=${JSON.stringify(lists)}`;
+};
+
+const sendXHR = function(data, url, method) {
+  const request = new XMLHttpRequest();
+  request.open(method, url);
+  request.send(data);
+};
+
+const save = () => {
+  sendXHR(getTodoDataString(), '/saveToDo', 'POST');
+};
