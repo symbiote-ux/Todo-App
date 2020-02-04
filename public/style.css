@@ -100,14 +100,14 @@ body {
   display: none;
 }
 
-#add {
+#add-todo {
   display: block;
 }
 
-#close {
+#close-todo {
   display: none;
 }
 
-#save {
+#save-todo {
   display: none;
 }

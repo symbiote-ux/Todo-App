@@ -12,7 +12,7 @@
     <div id="body-part" class="body-part">
       <div id="new-todo-part" class="new-todo-part">
         <button
-          id="add"
+          id="add-todo"
           class="button"
           onclick="openNewTodo()"
           style="display: block;"
@@ -20,7 +20,7 @@
           <strong>+</strong>
         </button>
         <button
-          id="close"
+          id="close-todo"
           class="button"
           onclick="closeNewTodo()"
           style="display: none;"
@@ -33,7 +33,7 @@
           >
           <input type="text" id="title" class="inner-box" required />
           <button
-            id="add-__idNo__"
+            id="add-task"
             type="button"
             class="button"
             onclick="addTask()"
@@ -42,7 +42,7 @@
           </button>
         </div>
         <div id="todo-tasks"></div>
-        <button id="save" class="button" onclick="save()">&#10004;</button>
+        <button id="save-todo" class="button" onclick="save()">&#10004;</button>
       </div>
       <div id="existing-todo-part" class="existing-todo-part">
         <h2 id="task-history" class="existing-todo-heading">Task History</h2>
