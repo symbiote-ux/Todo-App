@@ -23,7 +23,12 @@
 
 ✅ -> Setup a server.
 
-🔄 -> Make the basic version of todo homepage.
+✅ -> Make the basic version of todo homepage.
 
-🔄 -> Decide the structure of the database.
+✅ -> Decide the structure of the database.
 
+✅ -> Make the server to save the contents of the todo when user presses save button.
+
+🔄 -> Make the server to display all the previous todo lists saved in the database.
+
+🔄 -> Display the saved todo lists including the new one on the insertion of new todo.
