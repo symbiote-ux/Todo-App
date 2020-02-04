@@ -1,17 +1,11 @@
 const elementHtml = `
-  <div
-    id="todo-element-__idNo__"
-    class="todo-parts"
-    style="display: block; margin-left: 32.5% ;">
-    <label for="element" id="label-element" class="label-element"
-      ><input type="checkbox" name="" id="" </label>
+  <div id="todo-element-__idNo__" class="todo-parts">
+    <label for="element" id="label-element" class="label-element">
+    <input type="checkbox" name="" </label>
+    </label>
     <input type="text" name="element" class="inner-box" required />
-    <button
-      id="delete-__idNo__"
-      type="button"
-      class="button"
-      onclick="removeTask(this.id)">
-      &#10060;
+    <button id="delete-__idNo__" type="button" class="button" onclick="removeTask(this.id)">
+      -
     </button>
   </div>`;
 
@@ -22,6 +16,7 @@ const openNewTodo = () => {
   document.getElementById('todo-title').style.display = 'block';
   document.getElementById('add').style.display = 'none';
   document.getElementById('close').style.display = 'block';
+  document.getElementById('save').style.display = 'block';
 };
 
 closeNewTodo = () => {
@@ -59,4 +54,28 @@ const addTask = () => {
   taskIdList.push(currentIdNo);
   document.querySelector('#todo-tasks').innerHTML =
     document.querySelector('#todo-tasks').innerHTML + `${htmlToAdd}`;
+};
+
+const formatTodo = function() {
+  prepareTodoListToShow(JSON.parse(this.responseText));
+};
+
+const prepareTextToSend = function() {
+  const title = document.getElementById('title').value;
+  const tasks = document.querySelector('#todo-tasks').childNodes;
+  console.log(tasks);
+
+  const lists = [...tasks].map(task => task.value);
+  return `title=${title}&tasks=${JSON.stringify(lists)}`;
+};
+
+const sendXHR = function(data, url, method, callback) {
+  const request = new XMLHttpRequest();
+  request.open(method, url);
+  request.send(data);
+  request.onload = callback;
+};
+
+const save = () => {
+  sendXHR(prepareTextToSend(), '/saveToDo', 'POST', formatTodo);
 };
