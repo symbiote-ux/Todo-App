@@ -58,6 +58,7 @@ body {
   border-radius: 5px;
   font-size: large;
   font-weight: bolder;
+  margin: 2px;
 }
 
 .todo-parts {
@@ -70,22 +71,30 @@ body {
 }
 
 .new-todo-part {
-  border: solid thin;
+  border: double medium;
   border-radius: 5px;
   padding: 5px;
   width: 35%;
-  height: auto;
+  height: 570px;
+  overflow: scroll;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+  background-color: rgb(235, 235, 235);
 }
 
 .existing-todo-part {
-  width: 65%;
-  height: auto;
+  margin-left: 5px;
+  border: double medium;
+  border-radius: 5px;
+  padding: 5px;
+  width: 64%;
+  height: 570px;
+  overflow: scroll;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+  background-color: rgb(235, 235, 235);
 }
 
 .new-form {
