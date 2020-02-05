@@ -5,7 +5,7 @@
     <script src="./script.js"></script>
   </head>
 
-  <body>
+  <body onload="sendXHR('','/getTodoLists','GET')">
     <div id="head-part" class="head-part">
       <h1 id="heading" class="heading">TO-DO MANAGER</h1>
     </div>
@@ -40,6 +40,7 @@
       </div>
       <div id="existing-todo-part" class="existing-todo-part">
         <h2 id="task-history" class="existing-todo-heading">Task History</h2>
+        <div id="todo-log" class="todo-log"></div>
       </div>
     </div>
   </body>

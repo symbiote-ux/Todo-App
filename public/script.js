@@ -72,10 +72,34 @@ const getTodoDataString = function() {
   return `title=${title}&tasks=${JSON.stringify(lists)}`;
 };
 
+const generateHtmlForTodo = ({ title, tasks, timeStamp }) => {
+  const htmlLists = tasks.map(task => `<li>${task}</li>`);
+  const div = document.createElement('div');
+  div.className = 'todo-log-element';
+  div.innerHTML = `
+  <h3>${title}</h3>
+  <ul>
+    ${htmlLists.join('\n')}
+  </ul>
+  <p>created @ ${new Date(timeStamp)}</p>`;
+  return div;
+};
+
+const formatContents = function() {
+  const todoLists = JSON.parse(this.responseText);
+  const formattedTodo = todoLists.map(generateHtmlForTodo);
+  const parentElement = document.querySelector('#todo-log');
+  parentElement.innerHTML = '';
+  formattedTodo.forEach(element => {
+    parentElement.appendChild(element);
+  });
+};
+
 const sendXHR = function(data, url, method) {
   const request = new XMLHttpRequest();
   request.open(method, url);
   request.send(data);
+  request.onload = formatContents;
 };
 
 const save = () => {

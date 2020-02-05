@@ -105,6 +105,24 @@ body {
   text-align: center;
 }
 
+.todo-log {
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.todo-log-element {
+  border: solid thin;
+  border-radius: 5px;
+  width: 45%;
+  height: 300px;
+  overflow-y: scroll;
+  overflow-x: wrap;
+  margin-bottom: 10px;
+  padding: 2%;
+}
+
 #todo-title {
   display: none;
 }
