@@ -67,14 +67,14 @@ body {
   margin-left: 5%;
   margin-top: 5px;
   display: flex;
-  width: 500px;
+  width: 400px;
 }
 
 .new-todo-part {
   border: double medium;
   border-radius: 5px;
   padding: 5px;
-  width: 35%;
+  width: 30%;
   height: 570px;
   overflow: scroll;
   margin-top: 50px;
@@ -88,7 +88,7 @@ body {
   border: double medium;
   border-radius: 5px;
   padding: 5px;
-  width: 64%;
+  width: 69%;
   height: 570px;
   overflow: scroll;
   margin-top: 50px;
@@ -97,11 +97,7 @@ body {
   background-color: rgb(235, 235, 235);
 }
 
-.new-form {
-  display: none;
-}
-
-.existing-todo-heading {
+.todo-log-heading {
   text-align: center;
 }
 
@@ -116,7 +112,7 @@ body {
   border: solid thin;
   border-radius: 5px;
   width: 45%;
-  height: 300px;
+  height: 200px;
   overflow-y: scroll;
   overflow-x: wrap;
   margin-bottom: 10px;
