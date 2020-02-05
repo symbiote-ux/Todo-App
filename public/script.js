@@ -26,6 +26,7 @@ const openNewTodo = () => {
 };
 
 closeNewTodo = () => {
+  document.getElementById('title').value = '';
   document.getElementById('todo-title').style.display = 'none';
   document.getElementById('add-todo').style.display = 'block';
   document.getElementById('close-todo').style.display = 'none';
@@ -104,4 +105,5 @@ const sendXHR = function(data, url, method) {
 
 const save = () => {
   sendXHR(getTodoDataString(), '/saveToDo', 'POST');
+  closeNewTodo();
 };

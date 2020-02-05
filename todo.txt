@@ -35,4 +35,10 @@
 
 ✅ -> Display the saved todo lists including the new one on the insertion of new todo.
 
-🔄 -> Fix bug - after saving clear the Create todo window contents.
+✅ -> Fix bug - after saving clear the Create todo window contents.
+
+🔄 -> Add a method to save and display that if the task have been done or not.
+
+🔄 -> Make the saved task list to editable.
+
+🔄 -> Make able to add or delete tasks from already saved task list.
