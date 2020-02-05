@@ -1,4 +1,4 @@
-const generateInnerHtml = idNo => `
+const generateHtmlNewTodoPart = idNo => `
 <label for="element" id="label-element" class="label-element">
   <input type="checkbox">
 </label>
@@ -11,7 +11,7 @@ const createTaskHtml = idNo => {
   const div = document.createElement('div');
   div.id = `todo-element-${idNo}`;
   div.className = 'todo-parts';
-  div.innerHTML = generateInnerHtml(idNo);
+  div.innerHTML = generateHtmlNewTodoPart(idNo);
   return div;
 };
 
@@ -66,14 +66,14 @@ const addTask = () => {
   document.querySelector('#todo-tasks').appendChild(htmlToAdd);
 };
 
-const getTodoDataString = function() {
+const getTodoDataString = () => {
   const title = document.getElementById('title').value;
   const tasks = document.querySelector('#todo-tasks').children;
   const lists = [...tasks].map(task => task.children[1].value);
   return `title=${title}&tasks=${JSON.stringify(lists)}`;
 };
 
-const generateHtmlForTodo = ({ title, tasks, timeStamp }) => {
+const generateHtmlForSavedTodo = ({ title, tasks, timeStamp }) => {
   const htmlLists = tasks.map(task => `<li>${task}</li>`);
   const div = document.createElement('div');
   div.className = 'todo-log-element';
@@ -88,7 +88,7 @@ const generateHtmlForTodo = ({ title, tasks, timeStamp }) => {
 
 const formatContents = function() {
   const todoLists = JSON.parse(this.responseText);
-  const formattedTodo = todoLists.map(generateHtmlForTodo);
+  const formattedTodo = todoLists.map(generateHtmlForSavedTodo);
   const parentElement = document.querySelector('#todo-log');
   parentElement.innerHTML = '';
   formattedTodo.forEach(element => {
@@ -96,7 +96,7 @@ const formatContents = function() {
   });
 };
 
-const sendXHR = function(data, url, method) {
+const sendXHR = (data, url, method) => {
   const request = new XMLHttpRequest();
   request.open(method, url);
   request.send(data);
