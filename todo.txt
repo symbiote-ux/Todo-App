@@ -29,6 +29,8 @@
 
 ✅ -> Make the server to save the contents of the todo when user presses save button.
 
+✅ -> Disallow the user to continue if the title or the task box is empty.
+
 🔄 -> Make the server to display all the previous todo lists saved in the database.
 
 🔄 -> Display the saved todo lists including the new one on the insertion of new todo.

@@ -49,10 +49,10 @@ const removeTask = id => {
 };
 
 const isTitleEmpty = () =>
-  currentIdNo === 0 && document.querySelector(`#title`).value === '';
+  taskIdList.length === 0 && document.querySelector(`#title`).value === '';
 
 const isElementEmpty = () =>
-  currentIdNo !== 0 &&
+  taskIdList.length !== 0 &&
   document.querySelector(`#todo-element-${currentIdNo} input[name="element"]`)
     .value === '';
 
