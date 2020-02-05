@@ -48,7 +48,17 @@ const removeTask = id => {
   element.parentNode.removeChild(element);
 };
 
+const isTitleEmpty = () =>
+  currentIdNo === 0 && document.querySelector(`#title`).value === '';
+
+const isElementEmpty = () =>
+  currentIdNo !== 0 &&
+  document.querySelector(`#todo-element-${currentIdNo} input[name="element"]`)
+    .value === '';
+
 const addTask = () => {
+  if (isTitleEmpty()) return;
+  if (isElementEmpty()) return;
   currentIdNo++;
   const htmlToAdd = createTaskHtml(currentIdNo);
   taskIdList.push(currentIdNo);
