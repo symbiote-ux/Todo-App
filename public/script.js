@@ -3,7 +3,8 @@ const generateHtmlNewTodoPart = idNo => `
   <input type="checkbox">
 </label>
 <input type="text" name="element" class="inner-box" required />
-<button id="delete-${idNo}" type="button" class="button" onclick="removeTask(this.id)">
+<button id="delete-${idNo}" type="button" class="button" 
+onclick="removeTask(this.id)">
   -
 </button>`;
 
@@ -25,7 +26,7 @@ const openNewTodo = () => {
   document.getElementById('save-todo').style.display = 'block';
 };
 
-closeNewTodo = () => {
+const closeNewTodo = () => {
   document.getElementById('title').value = '';
   document.getElementById('todo-title').style.display = 'none';
   document.getElementById('add-todo').style.display = 'block';
@@ -50,7 +51,7 @@ const removeTask = id => {
 };
 
 const isTitleEmpty = () =>
-  taskIdList.length === 0 && document.querySelector(`#title`).value === '';
+  taskIdList.length === 0 && document.querySelector('#title').value === '';
 
 const isElementEmpty = () =>
   taskIdList.length !== 0 &&
@@ -58,8 +59,12 @@ const isElementEmpty = () =>
     .value === '';
 
 const addTask = () => {
-  if (isTitleEmpty()) return;
-  if (isElementEmpty()) return;
+  if (isTitleEmpty()) {
+    return;
+  }
+  if (isElementEmpty()) {
+    return;
+  }
   currentIdNo++;
   const htmlToAdd = createTaskHtml(currentIdNo);
   taskIdList.push(currentIdNo);
@@ -74,7 +79,7 @@ const getTodoDataString = () => {
 };
 
 const deleteTodo = id => {
-  [, , todoId] = id.split('-');
+  const [, , todoId] = id.split('-');
   sendXHR(todoId, './deleteTodo', 'POST');
 };
 
@@ -84,7 +89,9 @@ const generateHtmlForSavedTodo = ({ id, title, tasks, timeStamp }) => {
   div.className = 'todo-log-element';
   div.id = `todo-${id}`;
   div.innerHTML = `
-  <button id="delete-button-${id}" onclick="deleteTodo(this.id)">&#9988;</button>
+  <button id="delete-button-${id}" onclick="deleteTodo(this.id)">
+  &#9988;
+  </button>
   <h3>${title}</h3>
   <ul>
     ${htmlLists.join('\n')}

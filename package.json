@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "eslint ./*.js ./lib/*.js ./public/*.js",
     "start": "mkdir -p dataStore; export DATA_STORE=$(pwd)/dataStore/todo.json; node server.js"
   },
   "repository": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/step-batch-7/todo-anil-muraleedharan/issues"
   },
-  "homepage": "https://github.com/step-batch-7/todo-anil-muraleedharan#readme"
+  "homepage": "https://github.com/step-batch-7/todo-anil-muraleedharan#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
 }

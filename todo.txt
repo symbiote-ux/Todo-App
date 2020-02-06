@@ -37,7 +37,9 @@
 
 ✅ -> Fix bug - after saving clear the Create todo window contents.
 
-🔄 -> Make able to delete an existing todo.
+✅ -> Make able to delete an existing todo.
+
+🔄 -> Add EsLint and fix the errors.
 
 🔄 -> Add a method to save and display that if the task have been done or not.
 
