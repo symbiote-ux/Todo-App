@@ -1,6 +1,6 @@
 const generateHtmlNewTodoPart = idNo => `
 <label for="element" id="label-element" class="label-element">
-  <input type="checkbox">
+  <input type="checkbox" id="checkbox-${idNo}">
 </label>
 <input type="text" name="element" class="inner-box" required />
 <button id="delete-${idNo}" type="button" class="button" 
@@ -74,7 +74,10 @@ const addTask = () => {
 const getTodoDataString = () => {
   const title = document.getElementById('title').value;
   const tasks = document.querySelector('#todo-tasks').children;
-  const lists = [...tasks].map(task => task.children[1].value);
+  const lists = [...tasks].map(task => ({
+    status: task.children[0].children[0].checked,
+    content: task.children[1].value
+  }));
   return `title=${title}&tasks=${JSON.stringify(lists)}`;
 };
 
@@ -83,20 +86,41 @@ const deleteTodo = id => {
   sendXHR(todoId, './deleteTodo', 'POST');
 };
 
+const changeStatus = id => {
+  // const img = document.querySelector(`#${id} img`);
+  // const toggleEmojiPair = {
+  //   './unchecked-box.png': './checked-box.png',
+  //   './checked-box.png': './unchecked-box.png'
+  // };
+  // img.attributes.src.value = toggleEmojiPair[img.attributes.src.value];
+  sendXHR(id, '/updateTaskStatus', 'POST');
+};
+
+const generateTaskDiv = task => {
+  const imgSrc = task.status ? './checked-box.png' : './unchecked-box.png';
+  return `
+<div>
+  <button id="task-${task.id}" onclick="changeStatus(this.id)" class="button">
+  <img src="${imgSrc}" alt="" class="checkbox">
+  </button>
+  ${task.content}
+</div>`;
+};
+
 const generateHtmlForSavedTodo = ({ id, title, tasks, timeStamp }) => {
-  const htmlLists = tasks.map(task => `<li>${task}</li>`);
+  const htmlLists = tasks.map(generateTaskDiv);
   const div = document.createElement('div');
   div.className = 'todo-log-element';
   div.id = `todo-${id}`;
   div.innerHTML = `
-  <button id="delete-button-${id}" onclick="deleteTodo(this.id)">
+  <button id="delete-button-${id}" onclick="deleteTodo(this.id)" class="button">
   &#9988;
   </button>
   <h3>${title}</h3>
-  <ul>
+  <div>
     ${htmlLists.join('\n')}
-  </ul>
-  <p>created @ ${new Date(timeStamp)}</p>`;
+  </div>
+  <p>created @ ${new Date(timeStamp).toLocaleString()}</p>`;
   return div;
 };
 

@@ -134,3 +134,8 @@ body {
 #save-todo {
   display: none;
 }
+
+.checkbox {
+  width: 15px;
+  height: auto;
+}
