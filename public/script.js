@@ -1,8 +1,9 @@
 const generateHtmlNewTodoPart = idNo => `
 <label for="element" id="label-element" class="label-element">
-  <input type="checkbox" id="checkbox-${idNo}">
+&#10031;&nbsp;
 </label>
 <input type="text" name="element" class="inner-box" required />
+
 <button id="delete-${idNo}" type="button" class="button" 
 onclick="removeTask(this.id)">
   -
@@ -74,10 +75,7 @@ const addTask = () => {
 const getTodoDataString = () => {
   const title = document.getElementById('title').value;
   const tasks = document.querySelector('#todo-tasks').children;
-  const lists = [...tasks].map(task => ({
-    status: task.children[0].children[0].checked,
-    content: task.children[1].value
-  }));
+  const lists = [...tasks].map(task => task.children[1].value);
   return `title=${title}&tasks=${JSON.stringify(lists)}`;
 };
 
@@ -87,12 +85,6 @@ const deleteTodo = id => {
 };
 
 const changeStatus = id => {
-  // const img = document.querySelector(`#${id} img`);
-  // const toggleEmojiPair = {
-  //   './unchecked-box.png': './checked-box.png',
-  //   './checked-box.png': './unchecked-box.png'
-  // };
-  // img.attributes.src.value = toggleEmojiPair[img.attributes.src.value];
   sendXHR(id, '/updateTaskStatus', 'POST');
 };
 
