@@ -37,6 +37,8 @@
 
 ✅ -> Fix bug - after saving clear the Create todo window contents.
 
+🔄 -> Make able to delete an existing todo.
+
 🔄 -> Add a method to save and display that if the task have been done or not.
 
 🔄 -> Make the saved task list to editable.

@@ -73,11 +73,18 @@ const getTodoDataString = () => {
   return `title=${title}&tasks=${JSON.stringify(lists)}`;
 };
 
-const generateHtmlForSavedTodo = ({ title, tasks, timeStamp }) => {
+const deleteTodo = id => {
+  [, , todoId] = id.split('-');
+  sendXHR(todoId, './deleteTodo', 'POST');
+};
+
+const generateHtmlForSavedTodo = ({ id, title, tasks, timeStamp }) => {
   const htmlLists = tasks.map(task => `<li>${task}</li>`);
   const div = document.createElement('div');
   div.className = 'todo-log-element';
+  div.id = `todo-${id}`;
   div.innerHTML = `
+  <button id="delete-button-${id}" onclick="deleteTodo(this.id)">&#9988;</button>
   <h3>${title}</h3>
   <ul>
     ${htmlLists.join('\n')}
