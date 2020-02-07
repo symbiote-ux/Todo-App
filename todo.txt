@@ -39,9 +39,11 @@
 
 ✅ -> Make able to delete an existing todo.
 
-🔄 -> Add EsLint and fix the errors.
+✅ -> Add EsLint and fix the errors.
 
-🔄 -> Add a method to save and display that if the task have been done or not.
+✅ -> Add a method to save and display that if the task have been done or not.
+
+✅ -> Pull out classes for todo and todoList.
 
 🔄 -> Make the saved task list to editable.
 

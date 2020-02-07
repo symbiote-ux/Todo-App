@@ -1,3 +1,6 @@
+let currentIdNo = 0;
+let taskIdList = [];
+
 const generateHtmlNewTodoPart = idNo => `
 <label for="element" id="label-element" class="label-element">
 &#10031;&nbsp;
@@ -16,9 +19,6 @@ const createTaskHtml = idNo => {
   div.innerHTML = generateHtmlNewTodoPart(idNo);
   return div;
 };
-
-let currentIdNo = 0;
-let taskIdList = [];
 
 const openNewTodo = () => {
   document.getElementById('todo-title').style.display = 'block';
