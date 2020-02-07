@@ -5,7 +5,7 @@ const generateHtmlNewTodoPart = idNo => `
 <label for="element" id="label-element" class="label-element">
 &#10031;&nbsp;
 </label>
-<input type="text" name="element" class="inner-box" required />
+<input type="text" name="element" class="inner-box" placeholder="Task..." />
 
 <button id="delete-${idNo}" type="button" class="button" 
 onclick="removeTask(this.id)">
