@@ -91,6 +91,24 @@ const deleteTask = id => {
   sendXHR(id, '/deleteTask', 'POST');
 };
 
+const insertTask = id => {
+  const [, , idNo] = id.split('-');
+  document.getElementById(id).style.display = 'none';
+  document.getElementById(`insert-task-${idNo}`).style.display = 'block';
+};
+
+const saveInsertedTask = id => {
+  const [, , idNo] = id.split('-');
+  document.getElementById(`insert-task-${idNo}`).style.display = 'none';
+  document.getElementById(`add-button-${idNo}`).style.display = 'block';
+  const contentToSave = document.getElementById(`insert-task-input-${idNo}`)
+    .value;
+  if (!contentToSave) {
+    return;
+  }
+  sendXHR(`${idNo}-${contentToSave}`, '/insertTask', 'POST');
+};
+
 const generateTaskDiv = task => {
   const imgSrc = task.status
     ? './images/checked-box.png'
@@ -116,17 +134,29 @@ const generateHtmlForSavedTodo = ({ id, title, tasks, timeStamp }) => {
   div.id = `todo-${id}`;
   div.innerHTML = `
   <div class="todo-head">
-  <span>
-  <h3>${title}</h3>
-  </span>
-  <button id="delete-button-${id}" onclick="deleteTodo(this.id)" class="button">
-  <img src="./images/delete.png" alt="" class="delete-icon">
-  </button>
+    <span >
+      <h3 class="todo-title">${title}</h3>
+    </span>
+    <button id="delete-button-${id}" onclick="deleteTodo(this.id)" class="button">
+      <img src="./images/delete.png" alt="" class="delete-icon">
+    </button>
   </div>
-  <div>
+  <div class="task-list">
     ${htmlLists.join('\n')}
   </div>
-  <p>created @ ${new Date(timeStamp).toLocaleString()}</p>`;
+  <div class="todo-tail">
+    <button id="add-button-${id}" onclick="insertTask(this.id)" class="button">
+      <img src="./images/add-task.png" alt="" class="delete-icon">
+    </button>
+    <div id="insert-task-${id}" class="insert-task-box">
+      <input id="insert-task-input-${id}" type="text" name="element" class="task-box" placeholder="Task..." />
+      <button id="save-inserted-${id}" onclick="saveInsertedTask(this.id)" class="button">
+      <img src="./images/save.png" alt="" class="delete-icon">
+      </button>
+    </div>
+    <p>created @ ${new Date(timeStamp).toLocaleString()}</p>
+  </div>
+  `;
   return div;
 };
 

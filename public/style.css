@@ -66,8 +66,9 @@ body {
   background: none;
   font-size: large;
   font-weight: bolder;
-  margin: 5px;
-  margin-top: 10px;
+  padding: 1px;
+  /* margin: 5px;
+  margin-top: 10px; */
 }
 
 .button:hover {
@@ -126,10 +127,21 @@ body {
   border-radius: 5px;
   width: 45%;
   height: 200px;
-  overflow-y: scroll;
   overflow-x: wrap;
   margin-bottom: 10px;
   padding: 2%;
+}
+
+.task-list {
+  margin-top: 5px;
+  overflow: scroll;
+  height: 50%;
+}
+
+.todo-tail {
+  height: 35%;
+  margin: 0px;
+  border-top: solid thin;
 }
 
 #todo-title {
@@ -174,8 +186,15 @@ body {
 }
 
 .todo-head {
+  height: 15%;
   display: flex;
+  border-bottom: solid thin;
   justify-content: space-between;
+}
+
+.todo-title {
+  height: 100%;
+  margin: 0px;
 }
 
 .save-icon {
@@ -205,11 +224,26 @@ body {
 
 .task-content {
   width: 99%;
-  padding: 12px;
+  padding: 1%;
+  padding-left: 2%;
 }
 .task {
   width: 100%;
   display: flex;
+  margin-top: 5px;
+}
+
+.insert-task-box {
+  margin-left: 20%;
+  width: 80%;
+  display: none;
+}
+
+.task-box {
+  width: 85%;
+  font-size: small;
+  border: none;
+  border-bottom: solid thin;
 }
 
 button:focus {
