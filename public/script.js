@@ -6,10 +6,9 @@ const generateHtmlNewTodoPart = idNo => `
 &#10031;&nbsp;
 </label>
 <input type="text" name="element" class="inner-box" placeholder="Task..." />
-
 <button id="delete-${idNo}" type="button" class="button" 
 onclick="removeTask(this.id)">
-  -
+ <img src="./images/remove-task.png" alt="" class="remove-task-icon">
 </button>`;
 
 const createTaskHtml = idNo => {
@@ -88,14 +87,25 @@ const changeStatus = id => {
   sendXHR(id, '/updateTaskStatus', 'POST');
 };
 
+const deleteTask = id => {
+  sendXHR(id, '/deleteTask', 'POST');
+};
+
 const generateTaskDiv = task => {
-  const imgSrc = task.status ? './checked-box.png' : './unchecked-box.png';
+  const imgSrc = task.status
+    ? './images/checked-box.png'
+    : './images/unchecked-box.png';
   return `
-<div>
+<div class="task">
   <button id="task-${task.id}" onclick="changeStatus(this.id)" class="button">
   <img src="${imgSrc}" alt="" class="checkbox">
   </button>
+  <div class="task-content">
   ${task.content}
+  </div>
+  <button id="delete-task-${task.id}" onclick="deleteTask(this.id)" class="button">
+  <img src="./images/delete-task.png" alt="" class="delete-task-icon">
+  </button>
 </div>`;
 };
 
@@ -105,10 +115,14 @@ const generateHtmlForSavedTodo = ({ id, title, tasks, timeStamp }) => {
   div.className = 'todo-log-element';
   div.id = `todo-${id}`;
   div.innerHTML = `
-  <button id="delete-button-${id}" onclick="deleteTodo(this.id)" class="button">
-  &#9988;
-  </button>
+  <div class="todo-head">
+  <span>
   <h3>${title}</h3>
+  </span>
+  <button id="delete-button-${id}" onclick="deleteTodo(this.id)" class="button">
+  <img src="./images/delete.png" alt="" class="delete-icon">
+  </button>
+  </div>
   <div>
     ${htmlLists.join('\n')}
   </div>

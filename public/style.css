@@ -1,7 +1,6 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: rgb(245, 245, 245);
   padding: 10px;
   border: solid thick;
   border-radius: 10px;
@@ -23,7 +22,7 @@ body {
 .heading {
   margin: 0px;
   height: 40px;
-  width: 80%;
+  width: 50%;
   padding: 10px;
   background-color: black;
   font-family: Cambria serif;
@@ -37,9 +36,16 @@ body {
 .inner-box {
   width: 70%;
   height: 30px;
-  border-radius: 5px;
+  border: solid thin;
+  border-radius: 3px;
+  background: none;
   font-size: 15px;
   font-weight: 600;
+  outline: none;
+}
+
+.inner-box:focus-within {
+  background-color: rgb(240, 240, 240);
 }
 
 .label-title {
@@ -56,17 +62,23 @@ body {
 .button {
   width: 30px;
   height: 30px;
-  border-radius: 5px;
+  border: none;
+  background: none;
   font-size: large;
   font-weight: bolder;
-  margin: 2px;
+  margin: 5px;
+  margin-top: 10px;
+}
+
+.button:hover {
+  transform: scale(1.05);
 }
 
 .todo-parts {
   display: flex;
   flex-direction: row;
   margin-left: 5%;
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   width: 400px;
 }
@@ -81,7 +93,7 @@ body {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(255, 255, 255);
 }
 
 .existing-todo-part {
@@ -95,7 +107,7 @@ body {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(255, 255, 255);
 }
 
 .todo-log-heading {
@@ -139,4 +151,67 @@ body {
 .checkbox {
   width: 15px;
   height: auto;
+}
+
+.add-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: none;
+  font-size: large;
+  font-weight: bolder;
+  margin: 2px;
+}
+
+.delete-icon {
+  width: 22px;
+  height: auto;
+}
+
+.add-icon {
+  width: 35px;
+  height: auto;
+}
+
+.todo-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-icon {
+  width: 25px;
+  height: auto;
+}
+
+.close-icon {
+  width: 25px;
+  height: auto;
+}
+
+.add-task-icon {
+  width: 20px;
+  height: auto;
+}
+
+.remove-task-icon {
+  width: 20px;
+  height: auto;
+}
+
+.delete-task-icon {
+  width: 20px;
+  height: auto;
+}
+
+.task-content {
+  width: 99%;
+  padding: 12px;
+}
+.task {
+  width: 100%;
+  display: flex;
+}
+
+button:focus {
+  outline: none;
 }

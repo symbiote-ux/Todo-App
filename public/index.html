@@ -11,15 +11,17 @@
     </div>
     <div id="body-part" class="body-part">
       <div id="new-todo-part" class="new-todo-part">
-        <button id="add-todo" class="button" onclick="openNewTodo()">
-          <strong>+</strong>
+        <button id="add-todo" class="add-button" onclick="openNewTodo()">
+          <img src="./images/add.png" alt="" class="add-icon" />
         </button>
-        <div style="display: flex; flex-direction: row; margin-right: 5px;">
+        <div
+          style="display: flex; justify-content: space-between; flex-direction: row; margin-right: 5px;"
+        >
           <button id="save-todo" class="button" onclick="save()">
-            &#10004;
+            <img src="./images/save.png" alt="" class="save-icon" />
           </button>
           <button id="close-todo" class="button" onclick="closeNewTodo()">
-            &#10008;
+            <img src="./images/close.png" alt="" class="close-icon" />
           </button>
         </div>
         <div id="todo-title" class="todo-parts">
@@ -38,7 +40,7 @@
             class="button"
             onclick="addTask()"
           >
-            <strong>+</strong>
+            <img src="./images/add-task.png" alt="" class="add-task-icon" />
           </button>
         </div>
         <div id="todo-tasks"></div>
