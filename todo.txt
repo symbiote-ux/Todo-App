@@ -45,6 +45,6 @@
 
 ✅ -> Pull out classes for todo and todoList.
 
-🔄 -> Make the saved task list to editable.
+✅ -> Make able to add or delete tasks from already saved task list.
 
-🔄 -> Make able to add or delete tasks from already saved task list.
+🔄 -> Make the saved task list to editable.
