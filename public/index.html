@@ -6,11 +6,11 @@
   </head>
 
   <body onload="sendXHR('','/getTodoLists','GET')">
-    <div id="head-part" class="head-part">
+    <div id="head-block" class="head-block">
       <h1 id="heading" class="heading">TO-DO MANAGER</h1>
     </div>
-    <div id="body-part" class="body-part">
-      <div id="new-todo-part" class="new-todo-part">
+    <div id="body-block" class="body-block">
+      <div id="new-todo-block" class="new-todo-block">
         <button id="add-todo" class="add-button" onclick="openNewTodo()">
           <img src="./images/add.png" alt="" class="add-icon" />
         </button>
@@ -31,7 +31,7 @@
           <input
             type="text"
             id="title"
-            class="inner-box"
+            class="input-box"
             placeholder="Title..."
           />
           <button
@@ -45,8 +45,8 @@
         </div>
         <div id="todo-tasks"></div>
       </div>
-      <div id="existing-todo-part" class="existing-todo-part">
-        <h2 id="task-history" class="todo-log-heading">Task History</h2>
+      <div id="existing-todo-block" class="existing-todo-block">
+        <h2 id="task-history" class="todo-log-heading">TODO LOG</h2>
         <div id="todo-log" class="todo-log"></div>
       </div>
     </div>
