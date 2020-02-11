@@ -75,20 +75,30 @@ const getTodoDataString = () => {
   const title = document.getElementById('title').value;
   const tasks = document.querySelector('#todo-tasks').children;
   const lists = [...tasks].map(task => task.children[1].value);
-  return `title=${title}&tasks=${JSON.stringify(lists)}`;
+  return `{"title":"${title}","tasks":${JSON.stringify(lists)}}`;
 };
 
 const deleteTodo = id => {
   const [, , todoId] = id.split('-');
-  sendXHR(todoId, './deleteTodo', 'POST');
+  sendXHR(`{"todoId":${+todoId}}`, './deleteTodo', 'POST');
 };
 
 const changeStatus = id => {
-  sendXHR(id, '/updateTaskStatus', 'POST');
+  const [, todoId, subId] = id.split('-');
+  sendXHR(
+    `{"todoId":${todoId},"taskId":"${todoId}-${subId}"}`,
+    '/updateTaskStatus',
+    'POST'
+  );
 };
 
 const deleteTask = id => {
-  sendXHR(id, '/deleteTask', 'POST');
+  const [, , todoId, subId] = id.split('-');
+  sendXHR(
+    `{"todoId":"${todoId}","taskId":"${todoId}-${subId}"}`,
+    '/deleteTask',
+    'POST'
+  );
 };
 
 const insertTask = id => {
@@ -106,7 +116,11 @@ const saveInsertedTask = id => {
   if (!contentToSave) {
     return;
   }
-  sendXHR(`${idNo}-${contentToSave}`, '/insertTask', 'POST');
+  sendXHR(
+    `{"todoId":"${idNo}","taskContent":"${contentToSave}"}`,
+    '/insertTask',
+    'POST'
+  );
 };
 
 const generateTaskDiv = task => {
