@@ -1,12 +1,13 @@
-const http = require('http');
-const { app } = require('./lib/handler');
-const { showBeginMessage } = require('./lib/logger');
+const {Server} = require('http');
+const {app} = require('./lib/handler');
 
 const defaultPort = 3333;
 
 const main = function(port = defaultPort) {
-  const server = new http.Server(app.serve.bind(app));
-  server.listen(port, showBeginMessage.bind(null, port));
+  const server = new Server(app.serve.bind(app));
+  server.listen(port, () => {
+    process.stdout.write(`started listening: ${port}`);
+  });
 };
 
 const portNumPosition = 2;

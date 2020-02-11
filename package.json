@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "eslint ./*.js ./lib/*.js ./public/*.js",
-    "start": "mkdir -p dataStore; export DATA_STORE=$(pwd)/dataStore/todo.json; node server.js"
+    "start": "mkdir -p dataStore; export DATA_STORE=$(pwd)/dataStore/todo.json; node server.js 4000"
   },
   "repository": {
     "type": "git",

@@ -48,3 +48,24 @@
 ✅ -> Make able to add or delete tasks from already saved task list.
 
 🔄 -> Make the saved task list to editable.
+
+
+
+--------------------------------------------------------------------------Started Pairing-------------------------------------------------
+
+# Task to do : 
+   ✅ Refactor server.js and variables should be given according to their purpose
+   🔄 Reduce the size of css file : group the common part 
+   🔄 Extract the Html part out of script.js , AIM => reduce the size of the file and group the repetitive part
+   🔄 Assign variables name according to their task 
+   🔄 Refactor index.html : Extract css part out
+   🔄 Make a dataStore class that will do the function of read and write
+   
+
+# Front End :
+  🔄 Reduce border intensity 
+  🔄 Use soft theme 
+  🔄 Choose better border style
+  🔄 Layout should work for all screen size
+  🔄 Make todo user friendly i.e. easy to use and understandable
+  🔄 For saving todo save button should be nearby. Buttons should be placed near to their place of act
