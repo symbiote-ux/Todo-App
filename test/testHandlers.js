@@ -56,4 +56,12 @@ describe('POST', () => {
       .expect(200, done)
       .expect('Content-Type', 'application/json');
   });
+
+  it('should delete a task on /deleteTask', done => {
+    request(app.serve.bind(app))
+      .post('/deleteTask')
+      .send('insert-task-2-2')
+      .expect(200, done)
+      .expect('Content-Type', 'application/json');
+  });
 });
