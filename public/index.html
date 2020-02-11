@@ -10,44 +10,47 @@
       <h1 id="heading" class="heading">TO-DO MANAGER</h1>
     </div>
     <div id="body-block" class="body-block">
-      <div id="new-todo-block" class="new-todo-block">
-        <button id="add-todo" class="add-button" onclick="openNewTodo()">
-          <img src="./images/add.png" alt="" class="add-icon" />
-        </button>
-        <div
-          style="display: flex; justify-content: space-between; flex-direction: row; margin-right: 5px;"
-        >
-          <button id="save-todo" class="button" onclick="save()">
-            <img src="./images/save.png" alt="" class="save-icon" />
-          </button>
-          <button id="close-todo" class="button" onclick="closeNewTodo()">
-            <img src="./images/close.png" alt="" class="close-icon" />
-          </button>
-        </div>
-        <div id="todo-title" class="todo-parts">
-          <label for="title" id="label-title" class="label-title"
-            >Title&nbsp;</label
-          >
-          <input
-            type="text"
-            id="title"
-            class="input-box"
-            placeholder="Title..."
-          />
-          <button
-            id="add-task"
-            type="button"
-            class="button"
-            onclick="addTask()"
-          >
-            <img src="./images/add-task.png" alt="" class="add-task-icon" />
-          </button>
-        </div>
-        <div id="todo-tasks"></div>
-      </div>
       <div id="existing-todo-block" class="existing-todo-block">
         <h2 id="task-history" class="todo-log-heading">TODO LOG</h2>
         <div id="todo-log" class="todo-log"></div>
+      </div>
+      <div id="right-block" class="right-block">
+        <div id="search-box" class="search-box"></div>
+        <div id="new-todo-block" class="new-todo-block">
+          <button id="add-todo" class="add-button" onclick="openNewTodo()">
+            <img src="./images/add.png" alt="" class="add-icon" />
+          </button>
+          <div
+            style="display: flex; justify-content: space-between; flex-direction: row; margin-right: 5px;"
+          >
+            <button id="save-todo" class="button" onclick="save()">
+              <img src="./images/save.png" alt="" class="save-icon" />
+            </button>
+            <button id="close-todo" class="button" onclick="closeNewTodo()">
+              <img src="./images/close.png" alt="" class="close-icon" />
+            </button>
+          </div>
+          <div id="todo-title" class="todo-parts">
+            <label for="title" id="label-title" class="label-title"
+              >Title&nbsp;</label
+            >
+            <input
+              type="text"
+              id="title"
+              class="input-box"
+              placeholder="Title..."
+            />
+            <button
+              id="add-task"
+              type="button"
+              class="button"
+              onclick="addTask()"
+            >
+              <img src="./images/add-task.png" alt="" class="add-task-icon" />
+            </button>
+          </div>
+          <div id="todo-tasks"></div>
+        </div>
       </div>
     </div>
   </body>

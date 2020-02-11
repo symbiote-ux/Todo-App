@@ -81,17 +81,32 @@ body {
   width: 400px;
 }
 
+.right-block {
+  width: 30%;
+  height: 640px;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 .new-todo-block {
   border: double;
   border-radius: 5px;
-  padding: 5px;
-  width: 30%;
-  height: 630px;
+  width: 95%;
+  height: 80%;
   overflow: scroll;
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
+}
+
+.search-box {
+  width: 95%;
+  height: 20%;
+  border: double;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .existing-todo-block {
