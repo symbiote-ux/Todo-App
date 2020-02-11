@@ -41,10 +41,18 @@ describe('POST', () => {
       .expect('Content-Type', 'application/json');
   });
 
-  it('should toggle the status of the task on /', done => {
+  it('should toggle the status of the task on /updateTaskStatus', done => {
     request(app.serve.bind(app))
       .post('/updateTaskStatus')
       .send('task-2-1')
+      .expect(200, done)
+      .expect('Content-Type', 'application/json');
+  });
+
+  it('should insert a task on /insertTask', done => {
+    request(app.serve.bind(app))
+      .post('/insertTask')
+      .send('2-Maths')
       .expect(200, done)
       .expect('Content-Type', 'application/json');
   });
