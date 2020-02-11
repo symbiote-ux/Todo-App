@@ -1,2 +1,3 @@
-dataStore
-node_modules
+dataStore/
+node_modules/
+.nyc_output/
