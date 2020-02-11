@@ -31,4 +31,21 @@ describe('GET', () => {
       .expect('Content-Type', 'text/plain');
   });
 });
-0;
+
+describe('POST', () => {
+  it('should save the new todo on /saveTodo', done => {
+    request(app.serve.bind(app))
+      .post('/saveTodo')
+      .send('title=HomeWork&tasks=["Physics","Maths"]')
+      .expect(200, done)
+      .expect('Content-Type', 'application/json');
+  });
+
+  it('should toggle the status of the task on /', done => {
+    request(app.serve.bind(app))
+      .post('/updateTaskStatus')
+      .send('task-2-1')
+      .expect(200, done)
+      .expect('Content-Type', 'application/json');
+  });
+});

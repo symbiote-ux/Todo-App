@@ -186,6 +186,6 @@ const sendXHR = (data, url, method) => {
 };
 
 const save = () => {
-  sendXHR(getTodoDataString(), '/saveToDo', 'POST');
+  sendXHR(getTodoDataString(), '/saveTodo', 'POST');
   closeNewTodo();
 };
