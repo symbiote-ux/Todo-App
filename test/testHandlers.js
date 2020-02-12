@@ -100,6 +100,15 @@ describe('Request with incomplete body', () => {
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
+
+  it('should reply with status 404 if incomplete body on /deleteTodo', done => {
+    request(app.serve.bind(app))
+      .post('/deleteTodo')
+      .send('{}')
+      .expect(/pageNotFound/)
+      .expect(404, done)
+      .expect('Content-Type', 'text/plain');
+  });
 });
 
 describe('PUT', () => {
