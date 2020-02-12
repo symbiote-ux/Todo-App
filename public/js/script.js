@@ -67,21 +67,14 @@ const deleteTodo = id => {
 
 const changeStatus = id => {
   const [, todoId, subId] = id.split('-');
-  // const reqData = JSON.stringify({todoId,taskId:`to`})
-  sendXHR(
-    `{"todoId":${todoId},"taskId":"${todoId}-${subId}"}`,
-    '/updateTaskStatus',
-    'POST'
-  );
+  const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
+  sendXHR(reqData, '/updateTaskStatus', 'POST');
 };
 
 const deleteTask = id => {
   const [, , todoId, subId] = id.split('-');
-  sendXHR(
-    `{"todoId":"${todoId}","taskId":"${todoId}-${subId}"}`,
-    '/deleteTask',
-    'POST'
-  );
+  const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
+  sendXHR(reqData, '/deleteTask', 'POST');
 };
 
 const insertTask = id => {
@@ -99,11 +92,11 @@ const saveInsertedTask = id => {
   if (!contentToSave) {
     return;
   }
-  sendXHR(
-    `{"todoId":"${idNo}","taskContent":"${contentToSave}"}`,
-    '/insertTask',
-    'POST'
-  );
+  const reqData = JSON.stringify({
+    todoId: idNo,
+    taskContent: `${contentToSave}`
+  });
+  sendXHR(reqData, '/insertTask', 'POST');
 };
 
 const formatContents = function() {
