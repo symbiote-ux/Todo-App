@@ -27,7 +27,7 @@ describe('GET', () => {
     request(app.serve.bind(app))
       .get('/badUrl')
       .expect(404, done)
-      .expect(/pageNotFound/)
+      .expect(/Not Found/)
       .expect('Content-Type', 'text/plain');
   });
 });
@@ -78,7 +78,7 @@ describe('POST', () => {
       .post('/badRequest')
       .expect(404, done)
       .expect('Content-Type', 'text/plain')
-      .expect(/pageNotFound/);
+      .expect(/Not Found/);
   });
 });
 
@@ -87,7 +87,7 @@ describe('Request with incomplete body', () => {
     request(app.serve.bind(app))
       .post('/saveTodo')
       .send('{ "title" :"home work" }')
-      .expect(/pageNotFound/)
+      .expect(/Not Found/)
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
@@ -96,7 +96,7 @@ describe('Request with incomplete body', () => {
     request(app.serve.bind(app))
       .post('/deleteTask')
       .send('{ "todoId" : 1 }')
-      .expect(/pageNotFound/)
+      .expect(/Not Found/)
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
@@ -105,7 +105,7 @@ describe('Request with incomplete body', () => {
     request(app.serve.bind(app))
       .post('/deleteTodo')
       .send('{}')
-      .expect(/pageNotFound/)
+      .expect(/Not Found/)
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
@@ -114,7 +114,7 @@ describe('Request with incomplete body', () => {
     request(app.serve.bind(app))
       .post('/updateTaskStatus')
       .send('{ "todoId" : 1 }')
-      .expect(/pageNotFound/)
+      .expect(/Not Found/)
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
@@ -123,7 +123,7 @@ describe('Request with incomplete body', () => {
     request(app.serve.bind(app))
       .post('/insertTask')
       .send('{ "todoId" : 1 }')
-      .expect(/pageNotFound/)
+      .expect(/Not Found/)
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
@@ -135,6 +135,6 @@ describe('PUT', () => {
       .put('/badRequest')
       .expect(400, done)
       .expect('Content-Type', 'text/plain')
-      .expect(/badRequest/);
+      .expect(/Bad Request/);
   });
 });
