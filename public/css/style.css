@@ -226,7 +226,15 @@ body {
   width: 99%;
   padding: 1%;
   padding-left: 2%;
+  border: none;
+  background: transparent;
+  font-size: 15px;
 }
+
+.task-content:focus {
+  outline: none;
+}
+
 .task {
   width: 100%;
   display: flex;

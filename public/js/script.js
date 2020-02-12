@@ -70,7 +70,7 @@ const deleteTodo = id => {
 };
 
 const changeStatus = id => {
-  const [, todoId, subId] = id.split('-');
+  const [, , todoId, subId] = id.split('-');
   const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
   sendXHR(reqData, '/updateTaskStatus', 'POST');
 };
@@ -91,6 +91,13 @@ const editTitle = id => {
   const title = document.querySelector(`#title-${id}`).value;
   const reqData = JSON.stringify({ todoId: id, title });
   sendXHR(reqData, '/editTitle', 'POST');
+};
+
+const editTask = taskId => {
+  const [todoId] = taskId.split('-');
+  const task = document.querySelector(`#task-${taskId}`).value;
+  const reqData = JSON.stringify({ todoId, taskId, task });
+  sendXHR(reqData, '/editTask', 'POST');
 };
 
 const saveInsertedTask = id => {

@@ -36,12 +36,12 @@ const generateTaskDiv = task => {
     : './images/unchecked-box.png';
   return `
 <div class="task">
-  <button id="task-${task.id}" onclick="changeStatus(this.id)" class="button">
+  <button id="task-status-${task.id}" 
+    onclick="changeStatus(this.id)" class="button">
   <img src="${imgSrc}" alt="" class="checkbox">
   </button>
-  <div class="task-content">
-  ${task.content}
-  </div>
+  <input class="task-content" value="${task.content}" 
+    id="task-${task.id}" onblur="editTask('${task.id}')"/>
   <button id="delete-task-${task.id}" onclick="deleteTask(this.id)" 
   class="button">
   <img src="./images/delete-task.png" alt="" class="delete-task-icon">
