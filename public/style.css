@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 7px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .body-block {
@@ -11,23 +11,18 @@ body {
 }
 
 .head-block {
-  padding: 5px;
-  width: 100%;
-  height: 5%;
+  height: 4%;
   display: flex;
   justify-content: center;
 }
 
 .heading {
   margin: 0px;
-  height: 30px;
   width: 40%;
   padding: 10px;
   background-color: black;
-  font-family: Cambria serif;
-  font-size: 30px;
-  border: solid thin rgb(250, 250, 250);
   border-radius: 5px;
+  font-size: 30px;
   text-align: center;
   color: rgb(248, 244, 244);
 }
@@ -35,8 +30,8 @@ body {
 .input-box {
   width: 70%;
   height: 30px;
-  border: solid thin;
-  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
   background: none;
   font-size: 15px;
   font-weight: 600;
@@ -91,7 +86,7 @@ body {
 }
 
 .new-todo-block {
-  border: double;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   width: 95%;
   height: 80%;
@@ -104,14 +99,14 @@ body {
 .search-box {
   width: 95%;
   height: 20%;
-  border: double;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
 .existing-todo-block {
   margin-left: 5px;
-  border: solid thin;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   padding: 5px;
   width: 69%;
@@ -135,7 +130,7 @@ body {
 }
 
 .todo-log-element {
-  border: solid thin;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   width: 45%;
   height: 230px;
@@ -153,23 +148,17 @@ body {
 .todo-tail {
   height: 25%;
   margin: 0px;
-  border-top: solid thin;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
 }
 
-#todo-title {
+#todo-title,
+#close-todo,
+#save-todo {
   display: none;
 }
 
 #add-todo {
   display: block;
-}
-
-#close-todo {
-  display: none;
-}
-
-#save-todo {
-  display: none;
 }
 
 .checkbox {
@@ -200,7 +189,7 @@ body {
 .todo-head {
   height: 15%;
   display: flex;
-  border-bottom: solid thin;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   justify-content: space-between;
 }
 
@@ -209,27 +198,11 @@ body {
   margin: 0px;
 }
 
-.save-icon {
-  width: 25px;
-  height: auto;
-}
-
+.add-task-icon,
+.remove-task-icon,
+.delete-task-icon,
+.save-icon,
 .close-icon {
-  width: 25px;
-  height: auto;
-}
-
-.add-task-icon {
-  width: 20px;
-  height: auto;
-}
-
-.remove-task-icon {
-  width: 20px;
-  height: auto;
-}
-
-.delete-task-icon {
   width: 20px;
   height: auto;
 }
@@ -255,7 +228,7 @@ body {
   width: 85%;
   font-size: small;
   border: none;
-  border-bottom: solid thin;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 button:focus {
