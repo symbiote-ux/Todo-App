@@ -118,6 +118,15 @@ describe('Request with incomplete body', () => {
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
+
+  it('should give status 404 if /insertTask has incomplete body', done => {
+    request(app.serve.bind(app))
+      .post('/insertTask')
+      .send('{ "todoId" : 1 }')
+      .expect(/pageNotFound/)
+      .expect(404, done)
+      .expect('Content-Type', 'text/plain');
+  });
 });
 
 describe('PUT', () => {
