@@ -36,7 +36,7 @@ describe('POST', () => {
   it('should save the new todo on /saveTodo', done => {
     request(app.serve.bind(app))
       .post('/saveTodo')
-      .send('title=HomeWork&tasks=["Physics","Maths"]')
+      .send('{ "title" : "HomeWork", "tasks" : [ "Physics", "Maths" ] }')
       .expect(200, done)
       .expect('Content-Type', 'application/json');
   });
@@ -44,7 +44,7 @@ describe('POST', () => {
   it('should toggle the status of the task on /updateTaskStatus', done => {
     request(app.serve.bind(app))
       .post('/updateTaskStatus')
-      .send('task-2-1')
+      .send('{ "todoId" : 1, "taskId" : "1-1" }')
       .expect(200, done)
       .expect('Content-Type', 'application/json');
   });
@@ -52,7 +52,7 @@ describe('POST', () => {
   it('should insert a task on /insertTask', done => {
     request(app.serve.bind(app))
       .post('/insertTask')
-      .send('2-Maths')
+      .send('{ "todoId" : 1, "taskContent" : "Maths" }')
       .expect(200, done)
       .expect('Content-Type', 'application/json');
   });
@@ -60,8 +60,34 @@ describe('POST', () => {
   it('should delete a task on /deleteTask', done => {
     request(app.serve.bind(app))
       .post('/deleteTask')
-      .send('insert-task-2-2')
+      .send('{ "todoId" : 1, "taskId" : "1-2" }')
       .expect(200, done)
       .expect('Content-Type', 'application/json');
+  });
+
+  it('should delete the todo on /deleteTodo', done => {
+    request(app.serve.bind(app))
+      .post('/deleteTodo')
+      .send('{ "todoId" : 1 }')
+      .expect(200, done)
+      .expect('Content-Type', 'application/json');
+  });
+
+  it('should give an error pageNotFound with status code 404', done => {
+    request(app.serve.bind(app))
+      .post('/badRequest')
+      .expect(404, done)
+      .expect('Content-Type', 'text/plain')
+      .expect(/pageNotFound/);
+  });
+});
+
+describe('PUT', () => {
+  it('should give an error badRequest with status code 400', done => {
+    request(app.serve.bind(app))
+      .put('/badRequest')
+      .expect(400, done)
+      .expect('Content-Type', 'text/plain')
+      .expect(/badRequest/);
   });
 });
