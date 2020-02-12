@@ -135,6 +135,15 @@ describe('Request with incomplete body', () => {
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
+
+  it('should give status 404 if /editTitle has incomplete body', done => {
+    request(app.serve.bind(app))
+      .post('/editTitle')
+      .send('{ "todoId" : 1 }')
+      .expect(/Not Found/)
+      .expect(404, done)
+      .expect('Content-Type', 'text/plain');
+  });
 });
 
 describe('PUT', () => {
