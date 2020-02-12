@@ -73,6 +73,14 @@ describe('POST', () => {
       .expect('Content-Type', 'application/json');
   });
 
+  it('should edit the task on /editTask', done => {
+    request(app.serve.bind(app))
+      .post('/editTask')
+      .send('{ "todoId" : 1, "taskId" : "1-1" , "task" : "newTask" }')
+      .expect(200, done)
+      .expect('Content-Type', 'application/json');
+  });
+
   it('should delete the todo on /deleteTodo', done => {
     request(app.serve.bind(app))
       .post('/deleteTodo')
