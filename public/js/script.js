@@ -12,18 +12,12 @@ const makeDisplayNone = id => {
 const openNewTodo = () => {
   ['todo-title', 'close-todo', 'save-todo'].forEach(makeDisplayBlock);
   makeDisplayNone('add-todo');
-  // document.getElementById('todo-title').style.display = 'block';
-  // document.getElementById('add-todo').style.display = 'none';
-  // document.getElementById('close-todo').style.display = 'block';
-  // document.getElementById('save-todo').style.display = 'block';
 };
 
 const closeNewTodo = () => {
   document.getElementById('title').value = '';
-  document.getElementById('todo-title').style.display = 'none';
-  document.getElementById('add-todo').style.display = 'block';
-  document.getElementById('close-todo').style.display = 'none';
-  document.getElementById('save-todo').style.display = 'none';
+  ['todo-title', 'close-todo', 'save-todo'].forEach(makeDisplayNone);
+  makeDisplayBlock('add-todo');
   for (let idNo = 0; idNo < taskIdList.length; idNo++) {
     const element = document.getElementById(`todo-element-${taskIdList[idNo]}`);
     element.parentNode.removeChild(element);
