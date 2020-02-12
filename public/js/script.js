@@ -1,11 +1,21 @@
 let currentIdNo = 0;
 let taskIdList = [];
 
+const makeDisplayBlock = id => {
+  document.getElementById(id).style.display = 'block';
+};
+
+const makeDisplayNone = id => {
+  document.getElementById(id).style.display = 'none';
+};
+
 const openNewTodo = () => {
-  document.getElementById('todo-title').style.display = 'block';
-  document.getElementById('add-todo').style.display = 'none';
-  document.getElementById('close-todo').style.display = 'block';
-  document.getElementById('save-todo').style.display = 'block';
+  ['todo-title', 'close-todo', 'save-todo'].forEach(makeDisplayBlock);
+  makeDisplayNone('add-todo');
+  // document.getElementById('todo-title').style.display = 'block';
+  // document.getElementById('add-todo').style.display = 'none';
+  // document.getElementById('close-todo').style.display = 'block';
+  // document.getElementById('save-todo').style.display = 'block';
 };
 
 const closeNewTodo = () => {
