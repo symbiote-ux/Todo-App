@@ -60,8 +60,8 @@
    ✅ -> Add functional test.
    ✅ -> Reduce the size of css file : group the common part 
    ✅ -> Extract the Html part out of script.js , AIM => reduce the size of the file and group the repetitive part
-   🔄 -> Assign variables name according to their task 
    🔄 -> Refactor index.html : Extract css part out
+   🔄 -> Assign variables name according to their task 
    🔄 -> Make a dataStore class that will do the function of read and write
    
 

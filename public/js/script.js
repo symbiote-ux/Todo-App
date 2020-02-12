@@ -120,3 +120,5 @@ const save = () => {
   sendXHR(getTodoDataString(), '/saveTodo', 'POST');
   closeNewTodo();
 };
+
+window.onload = sendXHR('', '/getTodoLists', 'GET');
