@@ -80,11 +80,23 @@ describe('POST', () => {
       .expect('Content-Type', 'text/plain')
       .expect(/pageNotFound/);
   });
+});
 
-  it('should reply with status code 404 if the body is not complete', done => {
+describe('Request with incomplete body', () => {
+  it('should reply with status 404 if incomplete body on /saveTodo', done => {
+    request(app.serve.bind(app))
+      .post('/saveTodo')
+      .send('{ "title" :"home work" }')
+      .expect(/pageNotFound/)
+      .expect(404, done)
+      .expect('Content-Type', 'text/plain');
+  });
+
+  it('should reply with status 404 if incomplete body on /deleteTask', done => {
     request(app.serve.bind(app))
       .post('/deleteTask')
       .send('{ "todoId" : 1 }')
+      .expect(/pageNotFound/)
       .expect(404, done)
       .expect('Content-Type', 'text/plain');
   });
