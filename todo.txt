@@ -85,4 +85,4 @@
 
 
 ✅ -> Make title editable.
-🔄 -> Make task editable.
+✅ -> Make task editable.
