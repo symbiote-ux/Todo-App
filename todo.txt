@@ -84,4 +84,4 @@
 ❇️ -> Home Page: If not logged in it is a login page else it is the user's todo page/dashboard.
 
 
-->
+✅ -> Make title editable.
