@@ -110,7 +110,7 @@ describe('Request with incomplete body', () => {
       .expect('Content-Type', 'text/plain');
   });
 
-  it('should give status 404 if /updateTaskStatus has incomplete body', done => {
+  it('should give 404 if /updateTaskStatus has incomplete body', done => {
     request(app.serve.bind(app))
       .post('/updateTaskStatus')
       .send('{ "todoId" : 1 }')

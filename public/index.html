@@ -21,9 +21,7 @@
           <button id="add-todo" class="add-button" onclick="openNewTodo()">
             <img src="./images/add.png" alt="" class="add-icon" />
           </button>
-          <div
-            style="display: flex; justify-content: space-between; flex-direction: row; margin-right: 5px;"
-          >
+          <div id="create-todo-block">
             <button id="save-todo" class="button" onclick="save()">
               <img src="./images/save.png" alt="" class="save-icon" />
             </button>
@@ -33,20 +31,15 @@
           </div>
           <div id="todo-title" class="todo-parts">
             <label for="title" id="label-title" class="label-title"
-              >Title&nbsp;</label
-            >
+              >Title
+            </label>
             <input
               type="text"
               id="title"
               class="input-box"
-              placeholder="Title..."
+              placeholder="  Title..."
             />
-            <button
-              id="add-task"
-              type="button"
-              class="button"
-              onclick="addTask()"
-            >
+            <button id="add-task" class="button" onclick="addTask()">
               <img src="./images/add-task.png" alt="" class="add-task-icon" />
             </button>
           </div>

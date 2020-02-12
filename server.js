@@ -1,5 +1,5 @@
-const {Server} = require('http');
-const {app} = require('./lib/handler');
+const { Server } = require('http');
+const { app } = require('./lib/handler');
 
 const defaultPort = 3333;
 
