@@ -87,6 +87,12 @@ const insertTask = id => {
   document.getElementById(`insert-task-${idNo}`).style.display = 'block';
 };
 
+const editTitle = id => {
+  const title = document.querySelector(`#title-${id}`).value;
+  const reqData = JSON.stringify({ todoId: id, title });
+  sendXHR(reqData, '/editTitle', 'POST');
+};
+
 const saveInsertedTask = id => {
   const [, , idNo] = id.split('-');
   document.getElementById(`insert-task-${idNo}`).style.display = 'none';

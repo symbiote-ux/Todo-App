@@ -52,7 +52,7 @@ const generateTaskDiv = task => {
 const getHtmlForTodoTitlePart = (title, id) => `
 <div class="todo-head">
   <span >
-    <h3 class="todo-block-title">${title}</h3>
+    <input type="text" contenteditable="true" onblur="editTitle(${id})" class="todo-block-title" id="title-${id}" value="${title}">
   </span>
   <button id="delete-button-${id}" onclick="deleteTodo(this.id)" class="button">
     <img src="./images/delete.png" alt="" class="delete-icon">
