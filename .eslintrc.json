@@ -79,7 +79,12 @@
   },
   "overrides": [
     {
-      "files": ["test*.js", "./public/script.js", "./config.js"],
+      "files": [
+        "test*.js",
+        "./public/js/script.js",
+        "./config.js",
+        "./public/js/generateHtml.js"
+      ],
       "rules": {
         "no-unused-vars": "off",
         "no-undef": "off",

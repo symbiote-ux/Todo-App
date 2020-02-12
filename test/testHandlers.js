@@ -11,7 +11,7 @@ describe('GET', () => {
 
   it('should give css for /style.css', done => {
     request(app.serve.bind(app))
-      .get('/style.css')
+      .get('/css/style.css')
       .expect(200, done)
       .expect('Content-Type', 'text/css');
   });

@@ -1,24 +1,6 @@
 let currentIdNo = 0;
 let taskIdList = [];
 
-const generateHtmlNewTodoPart = idNo => `
-<label for="element" id="label-element" class="label-element">
-  &#10031;&nbsp;
-</label>
-<input type="text" name="element" class="input-box" placeholder="Task..." />
-<button id="delete-${idNo}" type="button" class="button" 
-onclick="removeTask(this.id)">
- <img src="./images/remove-task.png" alt="" class="remove-task-icon">
-</button>`;
-
-const createTaskHtml = idNo => {
-  const div = document.createElement('div');
-  div.id = `todo-element-${idNo}`;
-  div.className = 'todo-parts';
-  div.innerHTML = generateHtmlNewTodoPart(idNo);
-  return div;
-};
-
 const openNewTodo = () => {
   document.getElementById('todo-title').style.display = 'block';
   document.getElementById('add-todo').style.display = 'none';
@@ -85,6 +67,7 @@ const deleteTodo = id => {
 
 const changeStatus = id => {
   const [, todoId, subId] = id.split('-');
+  // const reqData = JSON.stringify({todoId,taskId:`to`})
   sendXHR(
     `{"todoId":${todoId},"taskId":"${todoId}-${subId}"}`,
     '/updateTaskStatus',
@@ -121,6 +104,20 @@ const saveInsertedTask = id => {
     '/insertTask',
     'POST'
   );
+};
+
+const generateHtmlForSavedTodo = ({ id, title, tasks, timeStamp }) => {
+  const htmlLists = tasks.map(generateTaskDiv);
+  const div = document.createElement('div');
+  div.className = 'todo-log-element';
+  div.id = `todo-${id}`;
+  div.innerHTML = `
+  ${getHtmlForTodoTitlePart(title, id)}
+  <div class="task-list">
+    ${htmlLists.join('\n')}
+  </div>
+  ${getHtmlForTodoTailPart(id, timeStamp)}`;
+  return div;
 };
 
 const generateTaskDiv = task => {
@@ -167,20 +164,6 @@ const getHtmlForTodoTailPart = (id, timeStamp) => `
   </div>
   <p>created @ ${new Date(timeStamp).toLocaleString()}</p>
 </div>`;
-
-const generateHtmlForSavedTodo = ({ id, title, tasks, timeStamp }) => {
-  const htmlLists = tasks.map(generateTaskDiv);
-  const div = document.createElement('div');
-  div.className = 'todo-log-element';
-  div.id = `todo-${id}`;
-  div.innerHTML = `
-  ${getHtmlForTodoTitlePart(title, id)}
-  <div class="task-list">
-    ${htmlLists.join('\n')}
-  </div>
-  ${getHtmlForTodoTailPart(id, timeStamp)}`;
-  return div;
-};
 
 const formatContents = function() {
   const todoLists = JSON.parse(this.responseText);
