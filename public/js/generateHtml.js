@@ -1,7 +1,4 @@
 const generateHtmlNewTodoPart = idNo => `
-<label for="element" id="label-element" class="label-element">
-  &#10031;&nbsp;
-</label>
 <input id="task-input-${idNo}" type="text" name="element" class="input-box" 
   placeholder="Task..." onkeypress="clickAddTaskButton(${idNo})"/>
 <button id="delete-${idNo}" type="button" class="button" 
@@ -66,7 +63,7 @@ const getHtmlForTodoTailPart = (id, timeStamp) => `
   <button id="add-button-${id}" onclick="insertTask(this.id)" class="button">
     <img src="./images/add-task.png" alt="" class="delete-icon">
   </button>
-  <div id="insert-task-${id}" class="insert-task-box">
+  <div id="insert-task-${id}" class="hidden">
     <input id="insert-task-input-${id}" type="text" name="element" 
     onkeypress="clickSaveInsertedButton(${id})"
     class="task-box" placeholder="Task..." />
@@ -75,5 +72,5 @@ const getHtmlForTodoTailPart = (id, timeStamp) => `
     <img src="./images/save.png" alt="" class="delete-icon">
     </button>
   </div>
-  <p>created @ ${new Date(timeStamp).toLocaleString()}</p>
+  <p class="date">created @ ${new Date(timeStamp).toLocaleString()}</p>
 </div>`;

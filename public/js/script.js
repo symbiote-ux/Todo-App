@@ -60,7 +60,7 @@ const addTask = () => {
 const getTodoDataString = () => {
   const title = document.getElementById('title').value;
   const tasks = document.querySelector('#todo-tasks').children;
-  const lists = [...tasks].map(task => task.children[1].value);
+  const lists = [...tasks].map(task => task.children[0].value);
   return `{"title":"${title}","tasks":${JSON.stringify(lists)}}`;
 };
 
@@ -84,7 +84,7 @@ const deleteTask = id => {
 const insertTask = id => {
   const [, , idNo] = id.split('-');
   document.getElementById(id).style.display = 'none';
-  document.getElementById(`insert-task-${idNo}`).style.display = 'block';
+  document.getElementById(`insert-task-${idNo}`).className = 'insert-task-box';
 };
 
 const editTitle = id => {
@@ -102,7 +102,7 @@ const editTask = taskId => {
 
 const saveInsertedTask = id => {
   const [, , idNo] = id.split('-');
-  document.getElementById(`insert-task-${idNo}`).style.display = 'none';
+  document.getElementById(`insert-task-${idNo}`).className = 'hidden';
   document.getElementById(`add-button-${idNo}`).style.display = 'block';
   const contentToSave = document.getElementById(`insert-task-input-${idNo}`)
     .value;

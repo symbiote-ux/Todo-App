@@ -11,7 +11,7 @@ body {
 }
 
 .head-block {
-  height: 4%;
+  height: 2%;
   display: flex;
   justify-content: center;
 }
@@ -28,15 +28,13 @@ body {
 }
 
 .input-box {
-  width: 70%;
+  width: 200px;
   height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
   background: none;
   font-size: 15px;
   font-weight: 600;
   outline: none;
-  margin: 10px 0px 0px 25px;
+  margin: 10px 0px 0px 2px;
 }
 
 .input-box:focus-within {
@@ -85,8 +83,8 @@ body {
 }
 
 .right-block {
-  width: 30%;
-  height: 640px;
+  width: 20%;
+  height: 675px;
   margin-top: 10px;
   margin-left: 10px;
   display: flex;
@@ -94,9 +92,9 @@ body {
 }
 
 .new-todo-block {
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  width: 95%;
+  width: 99%;
   height: 80%;
   overflow: scroll;
   display: flex;
@@ -107,56 +105,59 @@ body {
 .search-box {
   width: 90%;
   height: 20%;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: none;
+
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
-.existing-todo-block {
-  margin-left: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  padding: 5px;
-  width: 69%;
-  height: 630px;
-  overflow: scroll;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-}
-
 .todo-log-heading {
   text-align: center;
+  display: none;
 }
 
 .todo-log {
   padding: 1%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  border-radius: 5px;
+  padding: 1px;
+  width: 79%;
+  height: 675px;
+  overflow: scroll;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(255, 255, 255);
 }
 
 .todo-log-element {
-  border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
-  width: 45%;
-  height: 230px;
+  width: 230px;
+  height: 290px;
   overflow-x: wrap;
-  margin-bottom: 10px;
-  padding: 2%;
+  margin: 10px;
+
+  padding: 10px;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
 .task-list {
   margin-top: 5px;
   overflow: scroll;
-  height: 60%;
+  height: 70%;
 }
 
 .todo-tail {
-  height: 25%;
+  height: 15%;
   margin: 0px;
-  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.date {
+  margin-top: 5px;
+  font-size: 12px;
 }
 
 #todo-title,
@@ -195,9 +196,9 @@ body {
 }
 
 .todo-head {
-  height: 15%;
+  height: 12%;
   display: flex;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   justify-content: space-between;
 }
 
@@ -243,13 +244,18 @@ body {
 }
 
 .insert-task-box {
-  margin-left: 20%;
+  display: flex;
+  align-items: flex-start;
   width: 80%;
+}
+
+.hidden {
   display: none;
 }
 
-.task-box {
-  width: 85%;
+.task-box,
+.input-box {
+  margin-top: 8px;
   font-size: small;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
