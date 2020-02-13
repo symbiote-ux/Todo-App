@@ -66,26 +66,49 @@
    
 
 # Front End :
-  ✅ -> Reduce border intensity 
-  ✅ -> Use soft theme 
-  ✅ -> Choose better border style
-  ✅ -> Layout should work for all screen size
-  ✅ -> Make todo user friendly i.e. easy to use and understandable
-  🔄 -> For saving todo save button should be nearby. Buttons should be placed near to their place of act
+  
+✅ -> Reduce border intensity 
+
+✅ -> Use soft theme 
+
+✅ -> Choose better border style
+
+✅ -> Layout should work for all screen size
+
+✅ -> Make todo user friendly i.e. easy to use and understandable
+
+🔄 -> For saving todo save button should be nearby. Buttons should be placed near to their place of act
 
 
   -----V0.2 Requirements----
 
+
 ❇️ -> Edit title: Ability to edit their existing todo list title.
+
 ❇️ -> Edit tasks: Ability to edit their existing tasks.
+
 ❇️ -> Search by title:  Search the list by its title words.
+
 ❇️ -> Search by tasks: Search the todo item by its matched words.
+
 ❇️ -> User Todo's: A user can log in and log out off their account and work on their own todos.
+
 ❇️ -> Home Page: If not logged in it is a login page else it is the user's todo page/dashboard.
 
 
+
 ✅ -> Make title editable.
+
 ✅ -> Make task editable.
-🔄 -> Search by title
-   * add a search box for title
-  * write a script to filter matching todo
+
+✅ -> Search by title
+
+  ✅ -> add a search box for title
+
+  ✅ -> write a script to filter matching todo
+
+🔄 -> Search by task
+
+  🔄 -> Create one more search box for title.
+
+  🔄 -> Write script to filter matching todo.
