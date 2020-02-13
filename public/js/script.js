@@ -66,19 +66,19 @@ const getTodoDataString = () => {
 
 const deleteTodo = id => {
   const [, , todoId] = id.split('-');
-  sendXHR(`{"todoId":${+todoId}}`, './deleteTodo', 'POST');
+  sendXHR(`{"todoId":${+todoId}}`, './deleteTodo', 'POST', formatContents);
 };
 
 const changeStatus = id => {
   const [, , todoId, subId] = id.split('-');
   const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
-  sendXHR(reqData, '/updateTaskStatus', 'POST');
+  sendXHR(reqData, '/updateTaskStatus', 'POST', formatContents);
 };
 
 const deleteTask = id => {
   const [, , todoId, subId] = id.split('-');
   const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
-  sendXHR(reqData, '/deleteTask', 'POST');
+  sendXHR(reqData, '/deleteTask', 'POST', formatContents);
 };
 
 const insertTask = id => {
@@ -90,14 +90,14 @@ const insertTask = id => {
 const editTitle = id => {
   const title = document.querySelector(`#title-${id}`).value;
   const reqData = JSON.stringify({ todoId: id, title });
-  sendXHR(reqData, '/editTitle', 'POST');
+  sendXHR(reqData, '/editTitle', 'POST', formatContents);
 };
 
 const editTask = taskId => {
   const [todoId] = taskId.split('-');
   const task = document.querySelector(`#task-${taskId}`).value;
   const reqData = JSON.stringify({ todoId, taskId, task });
-  sendXHR(reqData, '/editTask', 'POST');
+  sendXHR(reqData, '/editTask', 'POST', formatContents);
 };
 
 const saveInsertedTask = id => {
@@ -113,7 +113,7 @@ const saveInsertedTask = id => {
     todoId: idNo,
     taskContent: `${contentToSave}`
   });
-  sendXHR(reqData, '/insertTask', 'POST');
+  sendXHR(reqData, '/insertTask', 'POST', formatContents);
 };
 
 const formatContents = function() {
@@ -126,16 +126,16 @@ const formatContents = function() {
   });
 };
 
-const sendXHR = (data, url, method) => {
+const sendXHR = (data, url, method, callBack) => {
   const request = new XMLHttpRequest();
   request.open(method, url);
   request.send(data);
-  request.onload = formatContents;
+  request.onload = callBack;
 };
 
 const save = () => {
-  sendXHR(getTodoDataString(), '/saveTodo', 'POST');
+  sendXHR(getTodoDataString(), '/saveTodo', 'POST', formatContents);
   closeNewTodo();
 };
 
-window.onload = sendXHR('', '/getTodoLists', 'GET');
+window.onload = sendXHR('', '/getTodoLists', 'GET', formatContents);

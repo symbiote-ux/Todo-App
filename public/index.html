@@ -16,7 +16,14 @@
         <div id="todo-log" class="todo-log"></div>
       </div>
       <div id="right-block" class="right-block">
-        <div id="search-box" class="search-box"></div>
+        <fieldset id="search-block" class="search-box">
+          <legend>Search Todo</legend>
+          <input
+            type="text"
+            placeholder="  Enter title to search"
+            class="input-box"
+          />
+        </fieldset>
         <div id="new-todo-block" class="new-todo-block">
           <button id="add-todo" class="add-button" onclick="openNewTodo()">
             <img src="./images/add.png" alt="" class="add-icon" />

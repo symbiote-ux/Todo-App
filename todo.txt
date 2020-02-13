@@ -86,3 +86,6 @@
 
 ✅ -> Make title editable.
 ✅ -> Make task editable.
+🔄 -> Search by title
+   * add a search box for title
+  * write a script to filter matching todo
