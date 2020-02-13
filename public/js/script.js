@@ -147,6 +147,7 @@ const searchByTitle = (searchedText, dataBase) => {
   const matchedTodo = dataBase.filter(todo => {
     return todo.title.includes(searchedText);
   });
+
   const formattedTodo = matchedTodo.map(generateHtmlForSavedTodo);
   const parentElement = document.querySelector('#todo-log');
   parentElement.innerHTML = '';
@@ -156,12 +157,11 @@ const searchByTitle = (searchedText, dataBase) => {
 };
 
 const getTodoData = id => {
-  const callBack = function() {
+  sendXHR('', '/getTodoLists', 'GET', function() {
     const dataBase = JSON.parse(this.responseText);
     const searchArea = document.querySelector(`#${id}`);
     searchByTitle(searchArea.value, dataBase);
-  };
-  sendXHR('', '/getTodoLists', 'GET', callBack);
+  });
 };
 
 const sendXHR = (data, url, method, callBack) => {
