@@ -143,6 +143,27 @@ const formatContents = function() {
   });
 };
 
+const searchByTitle = (searchedText, dataBase) => {
+  const matchedTodo = dataBase.filter(todo => {
+    return todo.title.includes(searchedText);
+  });
+  const formattedTodo = matchedTodo.map(generateHtmlForSavedTodo);
+  const parentElement = document.querySelector('#todo-log');
+  parentElement.innerHTML = '';
+  formattedTodo.forEach(element => {
+    parentElement.appendChild(element);
+  });
+};
+
+const getTodoData = id => {
+  const callBack = function() {
+    const dataBase = JSON.parse(this.responseText);
+    const searchArea = document.querySelector(`#${id}`);
+    searchByTitle(searchArea.value, dataBase);
+  };
+  sendXHR('', '/getTodoLists', 'GET', callBack);
+};
+
 const sendXHR = (data, url, method, callBack) => {
   const request = new XMLHttpRequest();
   request.open(method, url);

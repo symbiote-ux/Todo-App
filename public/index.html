@@ -19,9 +19,11 @@
         <fieldset id="search-block" class="search-box">
           <legend>Search Todo</legend>
           <input
+            id="searched-Text"
             type="text"
             placeholder="  Enter title to search"
             class="input-box"
+            onkeydown="getTodoData(this.id)"
           />
         </fieldset>
         <div id="new-todo-block" class="new-todo-block">
