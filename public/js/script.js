@@ -143,11 +143,14 @@ const formatContents = function() {
   });
 };
 
-const searchByTitle = (searchedText, dataBase) => {
+const searchByTask = (searchedText, dataBase) => {
   const matchedTodo = dataBase.filter(todo => {
-    return todo.title.includes(searchedText);
+    let isTaskMatching = false;
+    todo.tasks.forEach(task => {
+      isTaskMatching = isTaskMatching || task.content.includes(searchedText);
+    });
+    return isTaskMatching;
   });
-
   const formattedTodo = matchedTodo.map(generateHtmlForSavedTodo);
   const parentElement = document.querySelector('#todo-log');
   parentElement.innerHTML = '';
@@ -156,11 +159,28 @@ const searchByTitle = (searchedText, dataBase) => {
   });
 };
 
-const getTodoData = id => {
+const searchByTitle = (searchedText, dataBase) => {
+  const matchedTodo = dataBase.filter(todo => {
+    return todo.title.includes(searchedText);
+  });
+  const formattedTodo = matchedTodo.map(generateHtmlForSavedTodo);
+  const parentElement = document.querySelector('#todo-log');
+  parentElement.innerHTML = '';
+  formattedTodo.forEach(element => {
+    parentElement.appendChild(element);
+  });
+};
+
+const getTodoData = (id, type) => {
   sendXHR('', '/getTodoLists', 'GET', function() {
     const dataBase = JSON.parse(this.responseText);
     const searchArea = document.querySelector(`#${id}`);
-    searchByTitle(searchArea.value, dataBase);
+    if (type === 'title') {
+      searchByTitle(searchArea.value, dataBase);
+    }
+    if (type === 'task') {
+      searchByTask(searchArea.value, dataBase);
+    }
   });
 };
 
