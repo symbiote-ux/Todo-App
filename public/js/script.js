@@ -116,6 +116,23 @@ const saveInsertedTask = id => {
   sendXHR(reqData, '/insertTask', 'POST', formatContents);
 };
 
+const clickSaveInsertedButton = idNo => {
+  if (event.keyCode === 13) {
+    document.querySelector(`#save-inserted-${idNo}`).click();
+  }
+};
+
+const clickAddTaskButton = id => {
+  if (event.keyCode === 13) {
+    document.querySelector('#add-task').click();
+    const elementToFocus =
+      id === 'title'
+        ? document.querySelector('#task-input-1')
+        : document.querySelector(`#task-input-${id + 1}`);
+    elementToFocus.focus();
+  }
+};
+
 const formatContents = function() {
   const todoLists = JSON.parse(this.responseText);
   const formattedTodo = todoLists.map(generateHtmlForSavedTodo);
