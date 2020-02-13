@@ -107,8 +107,8 @@
 
   ✅ -> write a script to filter matching todo
 
-🔄 -> Search by task
+✅ -> Search by task
 
-  🔄 -> Create one more search box for title.
+  ✅ -> Create one more search box for title.
 
-  🔄 -> Write script to filter matching todo.
+  ✅ -> Write script to filter matching todo.
