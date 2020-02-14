@@ -117,3 +117,23 @@
 
  🔄 -> Fix the bug on searching for title and task at a time.
  
+
+
+ * render page according to the req only don't render whole page
+    # make TodoHtml function for one todo
+    # make itemHtml for each adding item 
+    # remove all other html part 
+
+* make a dataStore class that will do the function of reading and writing of content 
+  and assigning work to todoList accordingly
+
+
+* Refactor  the req Onload functions
+  # remove unnecessary callbacks
+
+
+* create a toggle button for switching between search by task & title
+
+
+
+------------------------------------------------------------------------Login Page--------------------------------------------------------
