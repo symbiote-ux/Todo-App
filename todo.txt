@@ -112,3 +112,8 @@
   ✅ -> Create one more search box for title.
 
   ✅ -> Write script to filter matching todo.
+
+ 🔄 -> Move the server from http to express.
+
+ 🔄 -> Fix the bug on searching for title and task at a time.
+ 
