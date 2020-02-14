@@ -100,4 +100,24 @@ describe('TODO class', () => {
       deepStrictEqual(todo, updatedTodo);
     });
   });
+
+  describe('deleteTask', () => {
+    it('should remove the task matching to the given Id', () => {
+      const todo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [
+          { id: '1-1', status: false, content: 'abc' },
+          { id: '1-2', status: false, content: 'abc' }
+        ]
+      });
+      const updatedTodo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+      });
+      todo.deleteTask('1-2');
+      deepStrictEqual(todo, updatedTodo);
+    });
+  });
 });
