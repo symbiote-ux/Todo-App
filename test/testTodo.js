@@ -120,4 +120,21 @@ describe('TODO class', () => {
       deepStrictEqual(todo, updatedTodo);
     });
   });
+
+  describe('editTitle', () => {
+    it('should change the title of the todo', () => {
+      const todo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+      });
+      const updatedTodo = Todo.createNewTodo({
+        id: 1,
+        title: 'hello',
+        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+      });
+      todo.editTitle('hello');
+      deepStrictEqual(todo, updatedTodo);
+    });
+  });
 });
