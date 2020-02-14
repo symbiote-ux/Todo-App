@@ -81,9 +81,10 @@
     {
       "files": [
         "test*.js",
-        "./public/js/script.js",
+        "./public/js/xmlReq.js",
         "./config.js",
-        "./public/js/generateHtml.js"
+        "./public/js/generateHtml.js",
+        "./public/js/todoUiFunc.js"
       ],
       "rules": {
         "no-unused-vars": "off",
