@@ -11,19 +11,19 @@ const formatContents = function() {
 const editTask = taskId => {
   const [todoId] = taskId.split('-');
   const task = document.querySelector(`#task-${taskId}`).value;
-  const reqData = JSON.stringify({todoId, taskId, task});
+  const reqData = JSON.stringify({ todoId, taskId, task });
   sendXHR(reqData, '/editTask', 'POST', formatContents);
 };
 
 const editTitle = id => {
   const title = document.querySelector(`#title-${id}`).value;
-  const reqData = JSON.stringify({todoId: id, title});
+  const reqData = JSON.stringify({ todoId: id, title });
   sendXHR(reqData, '/editTitle', 'POST', formatContents);
 };
 
 const deleteTask = id => {
   const [, , todoId, subId] = id.split('-');
-  const reqData = JSON.stringify({todoId, taskId: `${todoId}-${subId}`});
+  const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
   sendXHR(reqData, '/deleteTask', 'POST', formatContents);
 };
 
@@ -49,7 +49,7 @@ const deleteTodo = id => {
 
 const changeStatus = id => {
   const [, , todoId, subId] = id.split('-');
-  const reqData = JSON.stringify({todoId, taskId: `${todoId}-${subId}`});
+  const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
   sendXHR(reqData, '/updateTaskStatus', 'POST', formatContents);
 };
 
@@ -98,7 +98,7 @@ const saveTodo = () => {
   const title = document.getElementById('title').value;
   const taskBoxes = document.querySelector('#todo-tasks').children;
   const tasks = [...taskBoxes].map(task => task.children[0].value);
-  const reqData = JSON.stringify({title, tasks});
+  const reqData = JSON.stringify({ title, tasks });
   sendXHR(reqData, '/saveTodo', 'POST', formatContents);
   closeNewTodo();
 };

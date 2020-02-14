@@ -69,6 +69,17 @@ body {
   padding: 1px;
 }
 
+.login-button {
+  margin: 3px 0px 15px 5px;
+  font-size: 15px;
+  background: none;
+  border-radius: 7px;
+}
+
+.login-button:hover {
+  background-color: rgba(146, 152, 152, 0.4);
+}
+
 .button:hover {
   transform: scale(1.05);
 }
