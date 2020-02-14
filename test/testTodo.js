@@ -33,7 +33,7 @@ describe('TODO class', () => {
     });
   });
 
-  describe('findTask', function() {
+  describe('findTask', () => {
     const todo = Todo.createNewTodo({
       id: 1,
       title: 'abc',
@@ -47,6 +47,37 @@ describe('TODO class', () => {
 
     it('should give undefined if the id does not match with any task', () => {
       deepStrictEqual(todo.findTask('1-2'));
+    });
+  });
+
+  describe('updateTaskStatus', () => {
+    it('should change the status to true if it is false', () => {
+      const todo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+      });
+      const updatedTodo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [{ id: '1-1', status: true, content: 'abc' }]
+      });
+      todo.updateTaskStatus('1-1');
+      deepStrictEqual(todo, updatedTodo);
+    });
+    it('should change the status to false if it is true', () => {
+      const todo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [{ id: '1-1', status: true, content: 'abc' }]
+      });
+      const updatedTodo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+      });
+      todo.updateTaskStatus('1-1');
+      deepStrictEqual(todo, updatedTodo);
     });
   });
 });
