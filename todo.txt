@@ -3,17 +3,17 @@
 
     -----Requirements------
 
-❇️ -> Create one or more to-do list with a title
+✅ -> Create one or more to-do list with a title
 
-❇️ -> View all the to-do lists
+✅ -> View all the to-do lists
 
-❇️ -> Add an item to a to-do list
+✅ -> Add an item to a to-do list
 
-❇️ -> Delete an item from to-do list
+✅ -> Delete an item from to-do list
 
-❇️ -> Mark an item as done and undone
+✅ -> Mark an item as done and undone
 
-❇️ -> Delete a todo list
+✅ -> Delete a todo list
 
 
 
@@ -56,13 +56,16 @@
 --------------------------------------------------------------------------Started Pairing-------------------------------------------------
 
 # Task to do : 
+   
    ✅ -> Refactor server.js and variables should be given according to their purpose
+   
    ✅ -> Add functional test.
+   
    ✅ -> Reduce the size of css file : group the common part 
+   
    ✅ -> Extract the Html part out of script.js , AIM => reduce the size of the file and group the repetitive part
-   🔄 -> Refactor index.html : Extract css part out
-   🔄 -> Assign variables name according to their task 
-   🔄 -> Make a dataStore class that will do the function of read and write
+   
+   ✅ -> Refactor index.html : Extract css part out
    
 
 # Front End :
@@ -83,13 +86,13 @@
   -----V0.2 Requirements----
 
 
-❇️ -> Edit title: Ability to edit their existing todo list title.
+✅ -> Edit title: Ability to edit their existing todo list title.
 
-❇️ -> Edit tasks: Ability to edit their existing tasks.
+✅ -> Edit tasks: Ability to edit their existing tasks.
 
-❇️ -> Search by title:  Search the list by its title words.
+✅ -> Search by title:  Search the list by its title words.
 
-❇️ -> Search by tasks: Search the todo item by its matched words.
+✅ -> Search by tasks: Search the todo item by its matched words.
 
 ❇️ -> User Todo's: A user can log in and log out off their account and work on their own todos.
 
@@ -103,37 +106,39 @@
 
 ✅ -> Search by title
 
-  ✅ -> add a search box for title
+✅ -> add a search box for title
 
-  ✅ -> write a script to filter matching todo
+✅ -> write a script to filter matching todo
 
 ✅ -> Search by task
 
-  ✅ -> Create one more search box for title.
+✅ -> Create one more search box for title.
 
-  ✅ -> Write script to filter matching todo.
+✅ -> Write script to filter matching todo.
 
- 🔄 -> Move the server from http to express.
+✅ -> Move the server from http to express.
 
- 🔄 -> Fix the bug on searching for title and task at a time.
  
 
 
- * render page according to the req only don't render whole page
+🔄 -> render page according to the req only don't render whole page
     # make TodoHtml function for one todo
     # make itemHtml for each adding item 
     # remove all other html part 
 
-* make a dataStore class that will do the function of reading and writing of content 
+🔄 -> make a dataStore class that will do the function of reading and writing of content 
   and assigning work to todoList accordingly
 
 
-* Refactor  the req Onload functions
+🔄 -> Refactor  the req Onload functions
   # remove unnecessary callbacks
 
 
-* create a toggle button for switching between search by task & title
+🔄 -> create a toggle button for switching between search by task & title
+
+🔄 -> Fix the bug on searching for title and task at a time.
 
 
+------------------------------------------------------Login Page-------------------------------------------
 
-------------------------------------------------------------------------Login Page--------------------------------------------------------
+🔄 -> Link login page to the homepage.
