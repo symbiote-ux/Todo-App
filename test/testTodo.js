@@ -80,4 +80,24 @@ describe('TODO class', () => {
       deepStrictEqual(todo, updatedTodo);
     });
   });
+
+  describe('insertTask', () => {
+    it('should insert the given task to task list', function() {
+      const todo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+      });
+      const updatedTodo = Todo.createNewTodo({
+        id: 1,
+        title: 'abc',
+        tasks: [
+          { id: '1-1', status: false, content: 'abc' },
+          { id: '1-2', status: false, content: 'abc' }
+        ]
+      });
+      todo.insertTask('abc');
+      deepStrictEqual(todo, updatedTodo);
+    });
+  });
 });
