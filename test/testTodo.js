@@ -2,12 +2,17 @@ const { instanceOf, deepStrictEqual } = require('chai').assert;
 const { Todo } = require('../lib/todo');
 
 describe('TODO class', () => {
+  let timeStamp;
+  beforeEach(() => {
+    timeStamp = new Date().getTime();
+  });
   describe('createNewTodo', () => {
     it('should return an instance of Todo', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       instanceOf(todo, Todo);
     });
@@ -18,7 +23,8 @@ describe('TODO class', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       deepStrictEqual(todo.generateId(), '1-2');
     });
@@ -27,7 +33,8 @@ describe('TODO class', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: []
+        tasks: [],
+        timeStamp
       });
       deepStrictEqual(todo.generateId(), '1-1');
     });
@@ -37,7 +44,8 @@ describe('TODO class', () => {
     const todo = Todo.createNewTodo({
       id: 1,
       title: 'abc',
-      tasks: [{ id: '1-1', status: false, content: 'abc' }]
+      tasks: [{ id: '1-1', status: false, content: 'abc' }],
+      timeStamp
     });
 
     it('should find a task matching to the given id', () => {
@@ -55,12 +63,14 @@ describe('TODO class', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       const updatedTodo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: true, content: 'abc' }]
+        tasks: [{ id: '1-1', status: true, content: 'abc' }],
+        timeStamp
       });
       todo.updateTaskStatus('1-1');
       deepStrictEqual(todo, updatedTodo);
@@ -69,12 +79,14 @@ describe('TODO class', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: true, content: 'abc' }]
+        tasks: [{ id: '1-1', status: true, content: 'abc' }],
+        timeStamp
       });
       const updatedTodo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       todo.updateTaskStatus('1-1');
       deepStrictEqual(todo, updatedTodo);
@@ -86,7 +98,8 @@ describe('TODO class', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       const updatedTodo = Todo.createNewTodo({
         id: 1,
@@ -94,7 +107,8 @@ describe('TODO class', () => {
         tasks: [
           { id: '1-1', status: false, content: 'abc' },
           { id: '1-2', status: false, content: 'abc' }
-        ]
+        ],
+        timeStamp
       });
       todo.insertTask('abc');
       deepStrictEqual(todo, updatedTodo);
@@ -109,12 +123,14 @@ describe('TODO class', () => {
         tasks: [
           { id: '1-1', status: false, content: 'abc' },
           { id: '1-2', status: false, content: 'abc' }
-        ]
+        ],
+        timeStamp
       });
       const updatedTodo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       todo.deleteTask('1-2');
       deepStrictEqual(todo, updatedTodo);
@@ -126,12 +142,14 @@ describe('TODO class', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       const updatedTodo = Todo.createNewTodo({
         id: 1,
         title: 'hello',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       todo.editTitle('hello');
       deepStrictEqual(todo, updatedTodo);
@@ -143,12 +161,14 @@ describe('TODO class', () => {
       const todo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'abc' }]
+        tasks: [{ id: '1-1', status: false, content: 'abc' }],
+        timeStamp
       });
       const updatedTodo = Todo.createNewTodo({
         id: 1,
         title: 'abc',
-        tasks: [{ id: '1-1', status: false, content: 'bye' }]
+        tasks: [{ id: '1-1', status: false, content: 'bye' }],
+        timeStamp
       });
       todo.editTask('1-1', 'bye');
       deepStrictEqual(todo, updatedTodo);
