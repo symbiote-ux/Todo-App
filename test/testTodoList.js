@@ -44,4 +44,23 @@ describe('TodoList Class', () => {
       deepStrictEqual(todoList.toText(), JSON.stringify(todoList.todoList));
     });
   });
+
+  describe('generateId', () => {
+    it('should generate id for a todo depending on the last one', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      deepStrictEqual(todoList.generateId(), 2);
+    });
+
+    it('should should give id as 1 if the todoList is empty', () => {
+      const todoList = TodoList.load([]);
+      deepStrictEqual(todoList.generateId(), 1);
+    });
+  });
 });
