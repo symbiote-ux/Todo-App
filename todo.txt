@@ -141,4 +141,8 @@
 
 ------------------------------------------------------Login Page-------------------------------------------
 
-🔄 -> Link login page to the homepage.
+✅ -> Link login page to the homepage.
+
+✅ -> Change data structure to usable for different user
+
+✅ -> Make a todo store class.
