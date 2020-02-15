@@ -30,4 +30,18 @@ describe('TodoList Class', () => {
       deepStrictEqual(todoList.allTodo, todoList.todoList);
     });
   });
+
+  describe('toText', () => {
+    it('should return the text format of the all todo', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      deepStrictEqual(todoList.toText(), JSON.stringify(todoList.todoList));
+    });
+  });
 });
