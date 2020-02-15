@@ -48,7 +48,8 @@ const isTitleEmpty = () => {
 
 const isElementEmpty = () =>
   taskIdList.length !== 0 &&
-  document.querySelector(`#todo-element-${currentIdNo} input[name="element"]`).value === '';
+  document.querySelector(`#todo-element-${currentIdNo} input[name="element"]`)
+    .value === '';
 
 const addTask = () => {
   if (isTitleEmpty()) {
@@ -78,4 +79,9 @@ const clickAddTaskButton = id => {
         : document.querySelector(`#task-input-${id + 1}`);
     elementToFocus.focus();
   }
+};
+
+const emptyUserData = (id, password) => {
+  document.querySelector(id).value = '';
+  document.querySelector(password).value = '';
 };

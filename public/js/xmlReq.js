@@ -1,3 +1,29 @@
+const displaySignUpMsg = function() {
+  if (this.status !== 200) {
+    alert('UserName already exist');
+  }
+  emptyUserData('#signUpUserId', '#signUpPassword');
+};
+
+const signUp = () => {
+  const userName = document.querySelector('#signUpUserId').value;
+  const password = document.querySelector('#signUpPassword').value;
+  const reqData = JSON.stringify({ userName, password });
+  sendXHR(reqData, '/signUp', 'POST', displaySignUpMsg);
+};
+
+const displayLoginMsg = function() {
+  alert('incorrect userId or password');
+  emptyUserData('#loginUserId', '#loginPassword');
+};
+
+const login = () => {
+  const userName = document.querySelector('#loginUserId').value;
+  const password = document.querySelector('#loginPassword').value;
+  const reqData = JSON.stringify({ userName, password });
+  sendXHR(reqData, '/login', 'POST', displayLoginMsg);
+};
+
 const formatContents = function() {
   const todoLists = JSON.parse(this.responseText);
   const formattedTodo = todoLists.map(generateHtmlForSavedTodo);
@@ -117,5 +143,3 @@ const sendXHR = (data, url, method, callBack) => {
   req.send(data);
   req.onload = callBack;
 };
-
-window.onload = fetchAllTodo(formatContents);
