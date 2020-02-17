@@ -59,19 +59,52 @@ describe('TodoStore Class', () => {
       deepStrictEqual(todoStore.allTodo('user1'), expected);
     });
   });
+
+  describe('allTodoList', () => {
+    it('should give all the todoList', () => {
+      const todoStore = TodoStore.load({
+        user1: [
+          {
+            id: 1,
+            title: 'abc',
+            tasks: [
+              { id: '1-1', content: 'abc', status: false },
+              { id: '1-2', content: 'def', status: false }
+            ],
+            timeStamp
+          }
+        ],
+        user2: [
+          {
+            id: 3,
+            title: 'def',
+            tasks: [{ id: '3-1', status: false, content: 'ghi' }],
+            timeStamp
+          }
+        ]
+      });
+      const expected = {
+        user1: [
+          {
+            id: 1,
+            title: 'abc',
+            tasks: [
+              { id: '1-1', content: 'abc', status: false },
+              { id: '1-2', content: 'def', status: false }
+            ],
+            timeStamp
+          }
+        ],
+        user2: [
+          {
+            id: 3,
+            title: 'def',
+            tasks: [{ id: '3-1', status: false, content: 'ghi' }],
+            timeStamp
+          }
+        ]
+      };
+      deepStrictEqual(todoStore.allTodoList, expected);
+    });
+  });
 });
-
-/*
-static load(allTodoList) {
-addUser(userName) {
-allTodo(userName) {
-get allTodoList() {
-
-editTask(userName, todoId, taskId, task) {
-editTitle(userName, todoId, title) {
-deleteTask(userName, todoId, taskId) {
-insertTask(userName, todoId, taskContent) {
-deleteTodo(userName, todoId) {
-updateTaskStatus(userName, todoId, taskId) {
-addTodo(userName, title, tasks, timeStamp) {
-*/
