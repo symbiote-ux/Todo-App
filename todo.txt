@@ -15,9 +15,6 @@
 
 ✅ -> Delete a todo list
 
-
-
-
               TO-DO
         <- ----------- ->
 
@@ -49,7 +46,7 @@
 
 ✅ -> Make able to add or delete tasks from already saved task list.
 
-🔄 -> Make the saved task list to editable.
+✅ -> Make the saved task list to editable.
 
 
 
@@ -57,15 +54,15 @@
 
 # Task to do : 
    
-   ✅ -> Refactor server.js and variables should be given according to their purpose
-   
-   ✅ -> Add functional test.
-   
-   ✅ -> Reduce the size of css file : group the common part 
-   
-   ✅ -> Extract the Html part out of script.js , AIM => reduce the size of the file and group the repetitive part
-   
-   ✅ -> Refactor index.html : Extract css part out
+✅ -> Refactor server.js and variables should be given according to their purpose
+
+✅ -> Add functional test.
+
+✅ -> Reduce the size of css file : group the common part 
+
+✅ -> Extract the Html part out of script.js , AIM => reduce the size of the file and group the repetitive part
+
+✅ -> Refactor index.html : Extract css part out
    
 
 # Front End :
@@ -80,9 +77,6 @@
 
 ✅ -> Make todo user friendly i.e. easy to use and understandable
 
-🔄 -> For saving todo save button should be nearby. Buttons should be placed near to their place of act
-
-
   -----V0.2 Requirements----
 
 
@@ -94,9 +88,9 @@
 
 ✅ -> Search by tasks: Search the todo item by its matched words.
 
-❇️ -> User Todo's: A user can log in and log out off their account and work on their own todos.
+✅ -> User Todo's: A user can log in and log out off their account and work on their own todos.
 
-❇️ -> Home Page: If not logged in it is a login page else it is the user's todo page/dashboard.
+✅ -> Home Page: If not logged in it is a login page else it is the user's todo page/dashboard.
 
 
 
@@ -118,31 +112,24 @@
 
 ✅ -> Move the server from http to express.
 
- 
-
-
-🔄 -> render page according to the req only don't render whole page
-    # make TodoHtml function for one todo
-    # make itemHtml for each adding item 
-    # remove all other html part 
-
-🔄 -> make a dataStore class that will do the function of reading and writing of content 
-  and assigning work to todoList accordingly
-
-
-🔄 -> Refactor  the req Onload functions
-  # remove unnecessary callbacks
-
-
-🔄 -> create a toggle button for switching between search by task & title
-
-🔄 -> Fix the bug on searching for title and task at a time.
-
-
-------------------------------------------------------Login Page-------------------------------------------
+ ---------------------------------------------------Login Page-------------------------------------------
 
 ✅ -> Link login page to the homepage.
 
 ✅ -> Change data structure to usable for different user
 
 ✅ -> Make a todo store class.
+
+------------------------------------------------------Final points-------------------------------------------
+
+🔄 -> Fix the tests.
+
+🔄 -> Add necessary tests.
+
+🔄 -> Add logout feature.
+
+🔄 -> Make different pages for login and sign up.
+
+🔄 -> Add required functionality for both login and sign up  pages.
+
+🔄 -> Should notify user when the sign up is successful.
