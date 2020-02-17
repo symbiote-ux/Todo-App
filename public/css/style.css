@@ -13,7 +13,7 @@ body {
 .head-block {
   height: 2%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .heading {

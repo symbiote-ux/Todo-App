@@ -1,3 +1,10 @@
+const logout = () => {
+  const callBack = function() {
+    window.location.href = '/user/index.html';
+  };
+  sendXHR('{}', '/logout', 'POST', callBack);
+};
+
 const displaySignUpMsg = function() {
   if (this.status !== 200) {
     document.querySelector('#signUpError').innerText = 'User Already Exits';
