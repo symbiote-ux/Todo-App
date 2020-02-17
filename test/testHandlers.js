@@ -1,5 +1,5 @@
 const request = require('supertest');
-const {app} = require('../lib/handler');
+const { app } = require('../lib/handler');
 
 describe('GET', () => {
   it('should give homepage on "/" req', done => {
@@ -36,7 +36,7 @@ describe('POST', () => {
   it('should save the new todo on /saveTodo', done => {
     request(app)
       .post('/saveTodo')
-      .send({title: 'HomeWork', tasks: ['Physics', 'Maths']})
+      .send({ title: 'HomeWork', tasks: ['Physics', 'Maths'] })
       .expect(200, done)
       .expect('Content-Type', 'application/json; charset=utf-8');
   });
@@ -44,7 +44,7 @@ describe('POST', () => {
   it('should toggle the status of the task on /updateTaskStatus', done => {
     request(app)
       .post('/updateTaskStatus')
-      .send({todoId: 1, taskId: '1-1'})
+      .send({ todoId: 1, taskId: '1-1' })
       .expect(200, done)
       .expect('Content-Type', 'application/json; charset=utf-8');
   });
@@ -52,7 +52,7 @@ describe('POST', () => {
   it('should insert a task on /insertTask', done => {
     request(app)
       .post('/insertTask')
-      .send({todoId: 1, taskContent: 'Maths'})
+      .send({ todoId: 1, taskContent: 'Maths' })
       .expect(200, done)
       .expect('Content-Type', 'application/json; charset=utf-8');
   });

@@ -1,4 +1,4 @@
-const {app} = require('./lib/handler');
+const { app } = require('./lib/routes');
 
 const defaultPort = 4000;
 const main = (port = defaultPort) => {
