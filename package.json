@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "mkdir -p test/resource; export DATA_STORE=$(pwd)/test/resource/todo.json; eslint ./*.js ./lib/*.js ./public/js/*.js; nyc mocha; rm -rf test/resource/;",
-    "start": "mkdir -p dataStore; export DATA_STORE=$(pwd)/dataStore/todo.json; node server.js"
+    "test": "mkdir -p test/resource; export DATA_STORE=$(pwd)/test/resource/todo.json; export USER_ID_STORE=$(pwd)/test/resource/userId.json;eslint ./*.js ./lib/*.js ./public/js/*.js; nyc mocha; rm -rf test/resource/;",
+    "start": "mkdir -p dataStore; export DATA_STORE=$(pwd)/dataStore/todo.json; export USER_ID_STORE=$(pwd)/dataStore/userId.json; node server.js"
   },
   "repository": {
     "type": "git",

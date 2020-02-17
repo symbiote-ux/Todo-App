@@ -17,7 +17,7 @@ const login = () => {
   const password = document.querySelector('#loginPassword').value;
   const reqData = JSON.stringify({ userName, password });
   const callBack = function() {
-    window.location.href = '/';
+    window.location.href = '/homePage.html';
     if (this.status === 401) {
       document.querySelector('#loginError').innerText =
         'Incorrect Password or UserId';

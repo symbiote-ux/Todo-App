@@ -1,63 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>TO-DO</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/todoUiFunc.js"></script>
-    <script src="./js/generateHtml.js"></script>
-    <script src="./js/xmlReq.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/user/css/style.css" />
+    <script src="/user/js/xmlReq.js"></script>
+    <script src="/user/js/todoUiFunc.js"></script>
+    <script src="/user/js/generateHtml.js"></script>
+    <title>Login</title>
   </head>
-
-  <body onload="fetchAllTodo(formatContents)">
-    <div id="head-block" class="head-block">
-      <h1 id="heading" class="heading">TO-DO MANAGER</h1>
-    </div>
-    <div id="body-block" class="body-block">
-      <h2 id="task-history" class="todo-log-heading">TODO LOG</h2>
-      <div id="todo-log" class="todo-log"></div>
-      <div id="right-block" class="right-block">
-        <fieldset id="search-block" class="search-box">
-          <legend>Search Todo</legend>
-          <input
-            id="title-search-box"
-            type="text"
-            placeholder="  Enter title to search"
-            class="input-box"
-            onkeydown="getTodoData(this.id,'title')"
-          />
-          <input
-            id="task-search-box"
-            type="text"
-            placeholder="  Enter task to search"
-            class="input-box"
-            onkeydown="getTodoData(this.id,'task')"
-          />
-        </fieldset>
-        <div id="new-todo-block" class="new-todo-block">
-          <button id="add-todo" class="add-button" onclick="openNewTodo()">
-            <img src="./images/add.png" alt="" class="add-icon" />
-          </button>
-          <div id="create-todo-block">
-            <button id="save-todo" class="button" onclick="saveTodo()">
-              <img src="./images/save.png" alt="" class="save-icon" />
-            </button>
-            <button id="close-todo" class="button" onclick="closeNewTodo()">
-              <img src="./images/close.png" alt="" class="close-icon" />
-            </button>
-          </div>
-          <div id="todo-title" class="todo-parts">
-            <input
-              type="text"
-              id="title"
-              class="input-box"
-              placeholder="  Title..."
-              onkeypress="clickAddTaskButton(this.id)"
-            />
-            <button id="add-task" class="button" onclick="addTask()">
-              <img src="./images/add-task.png" alt="" class="add-task-icon" />
-            </button>
-          </div>
-          <div id="todo-tasks"></div>
-        </div>
+  <body>
+    <div id="page">
+      <div id="signUpBox" onclick="clearError('signUp')">
+        <h1>SignUp</h1>
+        <img src="./images/account.png" alt="" height="245px" width="280px" />
+        <div id="signUpError" class="error"></div>
+        <input type="text" id="signUpUserId" placeholder=" UserId" required />
+        <input
+          type="password"
+          id="signUpPassword"
+          placeholder=" Password"
+          required
+        />
+        <br />
+        <button class="login-button" onclick="signUp()">SignUp</button>
+      </div>
+      <div id="loginBox" onclick="clearError('login')">
+        <h1>Login</h1>
+        <img src="./images/account.png" alt="" height="245px" width="280px" />
+        <div id="loginError" class="error"></div>
+        <input
+          type="text"
+          id="loginUserId"
+          placeholder=" UserId"
+          name="userName"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder=" Password"
+          name="password"
+          required
+        />
+        <br />
+        <button class="login-button" onclick="login()">Login</button>
       </div>
     </div>
   </body>
