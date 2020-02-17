@@ -101,4 +101,216 @@ describe('TodoList Class', () => {
       deepStrictEqual(todoList.findTodo(3));
     });
   });
+
+  describe('addTodo', () => {
+    it('should add a new todo', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      const expectedTodoList = TodoList.load([
+        {
+          id: 2,
+          title: 'abc',
+          tasks: [{ id: '2-1', status: false, content: 'def' }],
+          timeStamp
+        },
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      todoList.addTodo('abc', ['def'], timeStamp);
+      deepStrictEqual(todoList, expectedTodoList);
+    });
+  });
+
+  describe('deleteTodo', () => {
+    it('should delete todo matching for given todoId', () => {
+      const todoList = TodoList.load([
+        {
+          id: 2,
+          title: 'abc',
+          tasks: [{ id: '2-1', status: false, content: 'def' }],
+          timeStamp
+        },
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      const expectedTodoList = TodoList.load([
+        {
+          id: 2,
+          title: 'abc',
+          tasks: [{ id: '2-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      todoList.deleteTodo(1);
+      deepStrictEqual(todoList, expectedTodoList);
+    });
+  });
+
+  describe('insertTask', () => {
+    it('should insert new task on the matching todo', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      const expectedTodoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [
+            { id: '1-1', status: false, content: 'def' },
+            { id: '1-2', status: false, content: 'hij' }
+          ],
+          timeStamp
+        }
+      ]);
+      todoList.insertTask(1, 'hij');
+      deepStrictEqual(todoList, expectedTodoList);
+    });
+  });
+
+  describe('deleteTask', () => {
+    it('should delete matching task from the todoList', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [
+            { id: '1-1', status: false, content: 'def' },
+            { id: '1-2', status: false, content: 'hij' }
+          ],
+          timeStamp
+        }
+      ]);
+      const expectedTodoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: false, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      todoList.deleteTask(1, '1-2');
+      deepStrictEqual(todoList, expectedTodoList);
+    });
+  });
+
+  describe('updateTaskStatus', () => {
+    it('should make status of the matching task to true if it is false', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [
+            { id: '1-1', status: true, content: 'def' },
+            { id: '1-2', status: false, content: 'hij' }
+          ],
+          timeStamp
+        }
+      ]);
+      const expectedTodo = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [
+            { id: '1-1', status: true, content: 'def' },
+            { id: '1-2', status: true, content: 'hij' }
+          ],
+          timeStamp
+        }
+      ]);
+      todoList.updateTaskStatus(1, '1-2');
+      deepStrictEqual(todoList, expectedTodo);
+    });
+
+    it('should make status of the matching task to false if it is true', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [
+            { id: '1-1', status: true, content: 'def' },
+            { id: '1-2', status: false, content: 'hij' }
+          ],
+          timeStamp
+        }
+      ]);
+      const expectedTodo = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [
+            { id: '1-1', status: false, content: 'def' },
+            { id: '1-2', status: false, content: 'hij' }
+          ],
+          timeStamp
+        }
+      ]);
+      todoList.updateTaskStatus(1, '1-1');
+      deepStrictEqual(todoList, expectedTodo);
+    });
+  });
+
+  describe('editTitle', () => {
+    it('should edit the title of the matching todo', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: true, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      const expectedTodoList = TodoList.load([
+        {
+          id: 1,
+          title: 'def',
+          tasks: [{ id: '1-1', status: true, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      todoList.editTitle(1, 'def');
+      deepStrictEqual(todoList, expectedTodoList);
+    });
+  });
+
+  describe('editTask', () => {
+    it('should edit the task of the matching todo', () => {
+      const todoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: true, content: 'def' }],
+          timeStamp
+        }
+      ]);
+      const expectedTodoList = TodoList.load([
+        {
+          id: 1,
+          title: 'abc',
+          tasks: [{ id: '1-1', status: true, content: 'xyz' }],
+          timeStamp
+        }
+      ]);
+      todoList.editTask(1, '1-1', 'xyz');
+      deepStrictEqual(todoList, expectedTodoList);
+    });
+  });
 });
