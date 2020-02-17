@@ -303,3 +303,7 @@ button:focus {
   justify-content: space-evenly;
   text-align: center;
 }
+
+.show {
+  display: block;
+}

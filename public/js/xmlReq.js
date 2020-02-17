@@ -1,6 +1,6 @@
 const displaySignUpMsg = function() {
   if (this.status !== 200) {
-    alert('UserName already exist');
+    document.querySelector('#signUpError').className = 'show';
   }
   emptyUserData('#signUpUserId', '#signUpPassword');
 };

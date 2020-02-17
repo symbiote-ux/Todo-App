@@ -12,6 +12,8 @@
   </head>
   <body>
     <div id="page">
+      <div id="signUpError" class="hidden">User Already Present</div>
+      <div id="loginError" class="hidden">Incorrect Password or UserId</div>
       <div id="signUpBox">
         <h1>SignUp</h1>
         <img src="./images/account.png" alt="" height="250px" width="280px" />
@@ -28,25 +30,23 @@
       <div id="loginBox">
         <h1>Login</h1>
         <img src="./images/account.png" alt="" height="250px" width="280px" />
-        <form action="/login" method="POST">
-          <input
-            type="text"
-            id="loginUserId"
-            placeholder=" UserId"
-            name="userName"
-            required
-          />
-          <br />
-          <input
-            type="text"
-            id="loginPassword"
-            placeholder=" Password"
-            name="password"
-            required
-          />
-          <br />
-          <input type="submit" />
-        </form>
+        <input
+          type="text"
+          id="loginUserId"
+          placeholder=" UserId"
+          name="userName"
+          required
+        />
+        <br />
+        <input
+          type="text"
+          id="loginPassword"
+          placeholder=" Password"
+          name="password"
+          required
+        />
+        <br />
+        <button class="login-button" onclick="login()">Login</button>
       </div>
     </div>
   </body>
