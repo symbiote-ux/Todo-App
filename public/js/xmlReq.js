@@ -1,6 +1,6 @@
 const displaySignUpMsg = function() {
   if (this.status !== 200) {
-    document.querySelector('#signUpError').className = 'show';
+    document.querySelector('#signUpError').innerText = 'User Already Exits';
   }
   emptyUserData('#signUpUserId', '#signUpPassword');
 };
@@ -12,16 +12,19 @@ const signUp = () => {
   sendXHR(reqData, '/signUp', 'POST', displaySignUpMsg);
 };
 
-const displayLoginMsg = function() {
-  alert('incorrect userId or password');
-  emptyUserData('#loginUserId', '#loginPassword');
-};
-
 const login = () => {
   const userName = document.querySelector('#loginUserId').value;
   const password = document.querySelector('#loginPassword').value;
   const reqData = JSON.stringify({ userName, password });
-  sendXHR(reqData, '/login', 'POST', displayLoginMsg);
+  const callBack = function() {
+    window.location.href = '/';
+    if (this.status === 401) {
+      document.querySelector('#loginError').innerText =
+        'Incorrect Password or UserId';
+      emptyUserData('#loginUserId', '#loginPassword');
+    }
+  };
+  sendXHR(reqData, '/login', 'POST', callBack);
 };
 
 const formatContents = function() {

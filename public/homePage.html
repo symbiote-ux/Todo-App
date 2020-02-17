@@ -12,14 +12,13 @@
   </head>
   <body>
     <div id="page">
-      <div id="signUpError" class="hidden">User Already Present</div>
-      <div id="loginError" class="hidden">Incorrect Password or UserId</div>
-      <div id="signUpBox">
+      <div id="signUpBox" onclick="clearError('signUp')">
         <h1>SignUp</h1>
-        <img src="./images/account.png" alt="" height="250px" width="280px" />
+        <img src="./images/account.png" alt="" height="245px" width="280px" />
+        <div id="signUpError" class="error"></div>
         <input type="text" id="signUpUserId" placeholder=" UserId" required />
         <input
-          type="text"
+          type="password"
           id="signUpPassword"
           placeholder=" Password"
           required
@@ -27,9 +26,10 @@
         <br />
         <button class="login-button" onclick="signUp()">SignUp</button>
       </div>
-      <div id="loginBox">
+      <div id="loginBox" onclick="clearError('login')">
         <h1>Login</h1>
-        <img src="./images/account.png" alt="" height="250px" width="280px" />
+        <img src="./images/account.png" alt="" height="245px" width="280px" />
+        <div id="loginError" class="error"></div>
         <input
           type="text"
           id="loginUserId"
@@ -39,7 +39,7 @@
         />
         <br />
         <input
-          type="text"
+          type="password"
           id="loginPassword"
           placeholder=" Password"
           name="password"

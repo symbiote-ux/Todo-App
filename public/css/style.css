@@ -304,6 +304,7 @@ button:focus {
   text-align: center;
 }
 
-.show {
-  display: block;
+.error {
+  color: red;
+  height: 20px;
 }

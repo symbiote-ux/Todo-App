@@ -85,3 +85,7 @@ const emptyUserData = (id, password) => {
   document.querySelector(id).value = '';
   document.querySelector(password).value = '';
 };
+
+const clearError = operation => {
+  document.querySelector(`#${operation}Error`).innerText = '';
+};
