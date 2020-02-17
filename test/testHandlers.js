@@ -324,3 +324,12 @@ describe('PUT', () => {
       .expect(/Cannot PUT \/badRequest/);
   });
 });
+
+describe('LogOut', () => {
+  it('should logout from the page on /logUut', done => {
+    request(app)
+      .post('/logOut')
+      .set('Cookie', ['SID=1'])
+      .expect(200, done);
+  });
+});
