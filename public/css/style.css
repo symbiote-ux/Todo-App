@@ -10,9 +10,17 @@ body {
   flex-direction: row;
 }
 
+.login-head-block,
 .head-block {
   height: 2%;
   display: flex;
+}
+
+.login-head-block {
+  justify-content: center;
+}
+
+.head-block {
   justify-content: flex-end;
 }
 
