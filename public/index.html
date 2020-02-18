@@ -8,35 +8,33 @@
     <script src="/user/js/xmlReq.js"></script>
     <script src="/user/js/todoUiFunc.js"></script>
     <script src="/user/js/generateHtml.js"></script>
-    <title>Login</title>
+    <title>Todo</title>
+    <style>
+    body{
+      background-image: url('./images/back3.jpeg');
+      background-size: cover;
+    }
+    </style>
   </head>
   <body>
+      <h1 id="login-heading">TODO</h1>
     <div id="page">
-      <div id="signUpBox" onclick="clearError('signUp')">
+      <div id="signUpBox" onclick="clearError('signUp')" class="hidden">
         <h1>SignUp</h1>
         <img src="./images/account.png" alt="" height="245px" width="280px" />
+        <button  class="pageLink" onclick="showLoginBox()">Login</button>
         <div id="signUpError" class="error"></div>
         <input type="text" id="signUpUserId" placeholder=" UserId" required />
-        <input
-          type="password"
-          id="signUpPassword"
-          placeholder=" Password"
-          required
-        />
+        <input type="password" id="signUpPassword" placeholder=" Password" required />
         <br />
         <button class="login-button" onclick="signUp()">SignUp</button>
       </div>
       <div id="loginBox" onclick="clearError('login')">
         <h1>Login</h1>
         <img src="./images/account.png" alt="" height="245px" width="280px" />
+        <button class="pageLink" onclick="showSignUpBox()">Create Account</button>
         <div id="loginError" class="error"></div>
-        <input
-          type="text"
-          id="loginUserId"
-          placeholder=" UserId"
-          name="userName"
-          required
-        />
+        <input type="text" id="loginUserId" placeholder=" UserId" name="userName" required />
         <br />
         <input
           type="password"
@@ -47,6 +45,7 @@
         />
         <br />
         <button class="login-button" onclick="login()">Login</button>
+        </p>
       </div>
     </div>
   </body>

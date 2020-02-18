@@ -6,30 +6,34 @@ const logout = () => {
 };
 
 const displaySignUpMsg = function() {
+  emptyUserData('#signUpUserId', '#signUpPassword');
   if (this.status !== 200) {
     document.querySelector('#signUpError').innerText = 'User Already Exits';
+    return;
   }
-  emptyUserData('#signUpUserId', '#signUpPassword');
+  showLoginBox();
 };
 
 const signUp = () => {
   const userName = document.querySelector('#signUpUserId').value;
   const password = document.querySelector('#signUpPassword').value;
-  const reqData = JSON.stringify({ userName, password });
-  sendXHR(reqData, '/signUp', 'POST', displaySignUpMsg);
+  if (userName && password) {
+    const reqData = JSON.stringify({userName, password});
+    sendXHR(reqData, '/signUp', 'POST', displaySignUpMsg);
+  }
 };
 
 const login = () => {
   const userName = document.querySelector('#loginUserId').value;
   const password = document.querySelector('#loginPassword').value;
-  const reqData = JSON.stringify({ userName, password });
+  const reqData = JSON.stringify({userName, password});
   const callBack = function() {
-    window.location.href = '/homePage.html';
     if (this.status === 401) {
-      document.querySelector('#loginError').innerText =
-        'Incorrect Password or UserId';
+      document.querySelector('#loginError').innerText = 'Incorrect Password or UserId';
       emptyUserData('#loginUserId', '#loginPassword');
+      return;
     }
+    window.location.href = '/homePage.html';
   };
   sendXHR(reqData, '/login', 'POST', callBack);
 };
@@ -47,19 +51,19 @@ const formatContents = function() {
 const editTask = taskId => {
   const [todoId] = taskId.split('-');
   const task = document.querySelector(`#task-${taskId}`).value;
-  const reqData = JSON.stringify({ todoId, taskId, task });
+  const reqData = JSON.stringify({todoId, taskId, task});
   sendXHR(reqData, '/editTask', 'POST', formatContents);
 };
 
 const editTitle = id => {
   const title = document.querySelector(`#title-${id}`).value;
-  const reqData = JSON.stringify({ todoId: id, title });
+  const reqData = JSON.stringify({todoId: id, title});
   sendXHR(reqData, '/editTitle', 'POST', formatContents);
 };
 
 const deleteTask = id => {
   const [, , todoId, subId] = id.split('-');
-  const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
+  const reqData = JSON.stringify({todoId, taskId: `${todoId}-${subId}`});
   sendXHR(reqData, '/deleteTask', 'POST', formatContents);
 };
 
@@ -85,7 +89,7 @@ const deleteTodo = id => {
 
 const changeStatus = id => {
   const [, , todoId, subId] = id.split('-');
-  const reqData = JSON.stringify({ todoId, taskId: `${todoId}-${subId}` });
+  const reqData = JSON.stringify({todoId, taskId: `${todoId}-${subId}`});
   sendXHR(reqData, '/updateTaskStatus', 'POST', formatContents);
 };
 
@@ -134,7 +138,7 @@ const saveTodo = () => {
   const title = document.getElementById('title').value;
   const taskBoxes = document.querySelector('#todo-tasks').children;
   const tasks = [...taskBoxes].map(task => task.children[0].value);
-  const reqData = JSON.stringify({ title, tasks });
+  const reqData = JSON.stringify({title, tasks});
   sendXHR(reqData, '/saveTodo', 'POST', formatContents);
   closeNewTodo();
 };

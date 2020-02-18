@@ -1,6 +1,16 @@
 let currentIdNo = 0;
 let taskIdList = [];
 
+const showSignUpBox = () => {
+  document.querySelector('#signUpBox').className = 'show';
+  document.querySelector('#loginBox').className = 'hidden';
+};
+
+const showLoginBox = () => {
+  document.querySelector('#loginBox').className = 'show';
+  document.querySelector('#signUpBox').className = 'hidden';
+};
+
 const makeDisplayBlock = id => {
   document.getElementById(id).style.display = 'block';
 };
@@ -48,8 +58,7 @@ const isTitleEmpty = () => {
 
 const isElementEmpty = () =>
   taskIdList.length !== 0 &&
-  document.querySelector(`#todo-element-${currentIdNo} input[name="element"]`)
-    .value === '';
+  document.querySelector(`#todo-element-${currentIdNo} input[name="element"]`).value === '';
 
 const addTask = () => {
   if (isTitleEmpty()) {
