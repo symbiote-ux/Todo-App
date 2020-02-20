@@ -5,5 +5,4 @@ const main = (port = defaultPort) => {
   app.listen(port, () => process.stdout.write(`started listening at ${port}`));
 };
 
-const [, , port] = process.argv;
-main(port);
+main(process.env.PORT);
