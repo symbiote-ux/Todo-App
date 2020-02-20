@@ -1,7 +1,8 @@
 const { app } = require('./lib/routes');
 
-const main = port => {
+const main = () => {
+  const port = process.env.PORT || 4000;
   app.listen(port, () => process.stdout.write(`started listening at ${port}`));
 };
 
-main(process.env.PORT || 4000);
+main();
