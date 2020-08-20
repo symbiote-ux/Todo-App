@@ -78,6 +78,7 @@
     ]
   },
   "overrides": [
+    { "files": ["./server.js"], "rules": { "no-process-env": "off" } },
     {
       "files": [
         "test*.js",

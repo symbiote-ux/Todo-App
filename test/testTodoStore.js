@@ -2,8 +2,10 @@ const { instanceOf, deepStrictEqual } = require('chai').assert;
 const { TodoStore } = require('../lib/todoStore');
 const { TodoList } = require('../lib/todoList');
 const { Todo } = require('../lib/todo');
+const { endRedisConnection } = require('../lib/dbOperations');
 
 describe('TodoStore Class', () => {
+  after(() => endRedisConnection());
   let timeStamp;
   beforeEach(() => {
     timeStamp = new Date().getTime();
